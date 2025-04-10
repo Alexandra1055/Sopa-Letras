@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Administración: Página principal</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Pagina principal para modificar los administradores">
+    <meta name="author" content="Alexandra, Pau y Paulo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/estructura.css">
+    <link rel="stylesheet" href="../CSS/base.css">
+    <link rel="stylesheet" href="../CSS/componentes.css">
+    <link rel="stylesheet" href="../CSS/responsive.css">
+    <link rel="stylesheet" href="../CSS/variables.css">
+    <link rel="stylesheet" href="../CSS/imagen-fondo.css">
+    <link rel="stylesheet" href="../CSS/formularios.css">
+    <link rel="stylesheet" href="../CSS/articulos.css">
+    <link rel="icon" type="image/x-icon" href="../Multimedia/Imagenes/favicon.ico">
+</head>
+
+<body class="admin">
+    <header class="login-admin">
+        <a href="../Usuario/wordSearch.html" class="logo"><img src="../Multimedia/Imagenes/logoadmin.png" alt="Not Found IMG"
+                height="80" width="80"></a>
+        <div id="logout">
+            <button>
+                <a href="../Usuario/wordSearch.html">Logout <img src="../Multimedia/Imagenes/logout.png" alt="Logout" width="15" height="15"></a>
+            </button>
+        </div>
+    </header>
+    <main>
+        <div class="contenidormain">
+            <div class="loginadmin">
+                <form action="procesar_wordSerach_Admin.php" method="post" target="_blank" autocomplete="on">
+                    <fieldset>
+                        <legend>
+                            <h4>Iniciar Sesión Admin&#128081;</h4>
+                        </legend>
+        
+                        <label for="nick"></label>
+                        <input type="text" name="nickname" id="nick" placeholder="Nombre de Usuario" required autofocus>
+                        <label for="contrasena"></label>
+                        <input type="password" name="contrasena" id="contrasena" placeholder="Introduce tu contraseña"
+                            required>
+        
+                    </fieldset>
+                    <input type="submit" value="Iniciar" id="loginBotonAdmin">
+                    <p>
+                        <a href="../Usuario/contacto.html">Recuperar contraseña</a>
+                        ¿Quieres ser administrador? Rellena el Formulario de <a href="../Usuario/solicitud_admin.html">Solicitud
+                            Administración</a>
+                    </p>
+                </form>
+            </div>
+        </div>   
+    </main>
+    <footer>
+        <div class="redes-sociales">
+            <a href="https://www.instagram.com/?next=%2F"><img
+                    src="../Multimedia/Imagenes/redes/Instagram_icon.png.webp" alt="Not Found IMG" height="30"
+                    width="30"></a>
+            <a href="https://www.facebook.com/pablo.contento.710"><img
+                    src="../Multimedia/Imagenes/redes/Facebook_Logo.png" alt="Not Found ING" height="30"
+                    width="30"></a>
+        </div>
+        <div class="contenido-footer">
+            <i><b>Correo: </b><a href="mailto:agonzalez1055@alumnes.politecnicllevant.cat">AGonzalez,</a> <a
+                    href="mailto:pescanellas925@alumnes.politecnicllevant.cat ">PEscanellas </a><a
+                    href="mailto:pfebrer408@alumnes.politecnicllevant.cat ">&amp; PFebrer</a></i>
+            <b><a href="../Usuario/wordSearch.html"><img src="../Multimedia/Imagenes/favicon.ico"
+                        alt="No se ha encontrado el logo" height="20" width="20">Word Search, sopa de letras</a></b>
+        </div>
+    </footer>
+
+</div>
+<script src="../JS/crud.js"></script>
+<script src="../JS/crud-usuario.js"></script>
+</body>
+
+</html>

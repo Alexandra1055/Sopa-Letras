@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  apache:
+    image: httpd:2.4
+    ports:
+      - "80:80"
+    volumes:
+      - ./proyectoDAle_front:/usr/local/apache2/htdocs/
+
+  backend:
+    image: node:16
+    working_dir: /app
+    volumes:
+      - ./proyectoDAle_server:/app
+    command: npm start
+    ports:
+      - "3000:3000"
+
+  db:
+    image: mariadb:10.7
+    environment:
+      MYSQL_ROOT_PASSWORD: cifproot
+      MYSQL_DATABASE: Sopa_Lletres
+      MYSQL_USER: alexandra
+      MYSQL_PASSWORD: alexandra123
+    volumes:
+      - ./volums/mysql:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8083:80"
+    environment:
+      PMA_HOST: db
+    depends_on:
+      - db

@@ -1,0 +1,115 @@
+.main-table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 2em;
+    margin-bottom: 4em;
+}
+
+.tabla1, .tabla2,.tabla3{
+    padding: 1em;
+}
+
+table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.507);
+}
+
+thead{
+    margin: 1em;
+    border-radius: 8px;
+}
+
+thead th {
+    padding: 1rem;
+}
+
+tbody{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+tbody tr {
+    background-color: white;
+    border-bottom: 1px solid var(--admin-accent);
+    border-radius: 8px;
+}
+
+tbody th {
+    padding: 1.3rem;
+}
+
+/* Colores User */
+.user table{
+    background-color: var(--user-bg-light);
+}
+
+.user thead {
+    background-color: var(--user-primary);
+    color: var(--user-hover-text);
+}
+
+.user tbody tr:hover {
+    background-color: var(--user-hover);
+    color: var(--user-hover-text);
+}
+.user tbody tr {
+    border-bottom: 6px solid var(--user-accent);
+}
+/* Colores Admin */
+.admin table{
+    background-color: var(--admin-bg-light);
+}
+
+.admin thead {
+    background-color: var(--admin-primary);
+    color: var(--admin-hover-text);
+}
+
+.admin tbody tr:hover {
+    background-color: var(--admin-hover);
+    color: var(--admin-hover-text);
+}
+.admin tbody tr {
+    border-bottom: 6px solid var(--admin-accent);
+}
+
+/* Responsive para tablets */
+@media (min-width: 720px) {
+    .main-table-container {
+        margin-bottom: 5rem;
+        margin-top: 5rem;
+        gap: 2em;
+    }
+    
+    .table-container {
+        display: flex;
+        flex-direction: column;
+        gap: 4em;
+    }
+
+    table {
+        font-size: 1rem;
+    }
+}
+
+/* Responsive para ordenadores */
+@media (min-width: 1024px) {
+
+    .table-container {
+        flex-direction: row;
+        gap: 4em;
+    }
+
+    table {
+        font-size: 1.1rem;
+    }
+}

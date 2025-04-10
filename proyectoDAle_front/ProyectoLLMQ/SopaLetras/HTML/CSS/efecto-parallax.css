@@ -1,0 +1,76 @@
+
+  .parallax-content {
+      display: none;
+  }
+
+  .parallax-wrapper {
+      display: none;
+  }
+  
+  .floater {
+    position: absolute;
+    z-index: -200;
+  }
+  
+  .behind {
+    z-index: -600;
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+  .middel {
+    z-index: -400;
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  .front {
+    z-index: -200;
+    opacity: 1;
+    transform: scale(2);
+  }
+
+  .small {
+    width: 5%;
+    height: auto;
+    max-width: 20px;
+  }
+  .medium {
+    width: 10%;
+    height: auto;
+    max-width: 35px;
+  }
+  .big {
+    width: 15%;
+    height: auto;
+    max-width: 40px;
+  }
+  
+  @keyframes scrollCycle {
+    0% { transform: translateY(-100vh); }
+    100% { transform: translateY(0); }
+  }
+
+
+@media (min-width: 720px) {
+    /*Se usa display block para desactivar el display none del mobile first*/
+
+.parallax-wrapper {
+  display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200vh;
+    overflow: hidden;
+    animation: scrollCycle 30s linear infinite;
+    z-index: -100;
+  }
+
+  .parallax-content {
+    display: block;
+    position: relative;
+    width: 80%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  }

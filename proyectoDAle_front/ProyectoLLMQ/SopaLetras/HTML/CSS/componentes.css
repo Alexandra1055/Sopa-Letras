@@ -1,0 +1,285 @@
+/* Botones */
+button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.letras{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+}
+
+main input[type="submit"], main input[type="reset"] ,main input[type="button"]{
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 0.5em;
+}
+
+button input[type="submit"] {
+  margin-bottom: 0.5em;
+
+}
+
+main button input[type="submit"]:hover, main #jugar[type="submit"]:hover,main button[type="submit"]:hover,.botones button[type="submit"]:hover{
+  color: #7ed13a;
+}
+
+main button input[type="reset"]:hover,main #fin button[type="submit"]:hover,.botones button[type="reset"]:hover,.formulario-eliminar-sopas~button[type="submit"]:hover {
+  color: #f8421d;
+}
+
+main button input[type="button"]:hover,.admin main button[type="button"]:hover,.botones button[type="button"]:hover, .eleccio-juego button[type="submit"]:hover{
+  color: #f9a114;
+}
+/*Colores User -botones*/
+.user button{
+  border: 2px solid var(--usuario-secondary);
+  background-color: var(--usuario-primary);
+  color: var(--usuario-secondary);
+}
+.user button:hover {
+  background-color: var(--usuario-secondary);
+  color: var(--usuario-primary);
+}
+
+
+.user main input[type="submit"], .user main input[type="reset"],.user main input[type="button"] {
+  background-color: var(--usuario-primary);
+  color: var(--usuario-secondary);
+}
+
+.user main input[type="submit"]:hover, .user main input[type="reset"]:hover, .user main input[type="button"]:hover,main #jugar[type="submit"]:hover,.user main #fin button[type="submit"]:hover
+,.botones button[type="submit"]:hover,.botones button[type="reset"]:hover,.botones button[type="button"]:hover,.eleccio-juego button[type="submit"]:hover,.formulario-eliminar-sopas~button[type="submit"]:hover{
+  background-color: var(--usuario-hover);
+}
+
+/*Colores Admin -botones*/
+.admin button{
+  border: 2px solid var(--admin-secondary);
+  background-color: var(--admin-primary);
+  color: var(--admin-secondary);
+}
+.admin button:hover {
+  background-color: var(--admin-secondary);
+  color: var(--admin-primary);
+}
+
+.admin main form input[type="submit"], main form input[type="reset"]  {
+  background-color: var(--admin-primary);
+  color: var(--admin-secondary);
+}
+
+.admin main form input[type="submit"]:hover, main form input[type="reset"]:hover,.admin main button[type="button"]:hover {
+  background-color: var(--admin-hover);
+}
+
+
+/* Listas */
+ul,
+ol {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.Llistausuaris {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 8px;
+  padding: 1rem;
+  max-width: 100%;
+  border-radius: 0.2rem;
+  box-shadow: 3px 2px 5px var(--usuario-primary);
+  margin-bottom: 5em;
+}
+/*Listas consulta_ranking*/
+.ranking{
+  margin-top: 1em;
+  margin-bottom: 6em;
+}
+
+.ranking ol {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 0;
+  list-style: none;
+}
+
+.ranking li {
+  color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+
+.Llistausuaris > ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: contents; 
+}
+
+.Llistausuaris li {
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px var(--usuario-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Asignamos posiciones específicas */
+.Llistausuaris li:nth-child(1) { grid-column-start: 1; grid-row-start: 1; }
+.Llistausuaris li:nth-child(2) { grid-column-start: 2; grid-row-start: 1; }
+.Llistausuaris li:nth-child(3) { grid-column-start: 1; grid-row-start: 2; }
+.Llistausuaris li:nth-child(4) { grid-column-start: 2; grid-row-start: 2;}
+.Llistausuaris li:nth-child(5) { grid-column-start: 1; grid-row-start: 3; }
+.Llistausuaris li:nth-child(6) { grid-column-start: 2; grid-row-start: 3; }
+.Llistausuaris li:nth-child(7) { grid-column-start: 1; grid-row-start: 4; }
+.Llistausuaris li:nth-child(8) { grid-column-start: 2; grid-row-start: 4; }
+.Llistausuaris li:nth-child(9) { grid-column-start: 1; grid-row-start: 5;}
+.Llistausuaris li:nth-child(10) { grid-column-start: 2; grid-row-start: 5;}
+
+/* Estilos para la contraseña */
+.Llistausuaris li ul {
+  margin-top: 5px;
+  padding-left: 10px;
+}
+
+.Llistausuaris li ul li {
+  font-size: 0.9rem;
+  color: gray;
+}
+/*Multimedia*/
+#audio {
+  position: fixed;
+  bottom: 50px;
+  width: 150px;
+  z-index: 10;
+}
+
+.mapa iframe {
+  width: 250px;
+  height: 250px;
+  border-radius: 8px;
+}
+.contenido-mapa{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.mapa{
+  align-items: center;
+  background-color: var(--usuario-bg-light);
+  box-shadow: 0.1rem 0.1rem var(--usuario-primary);
+  padding: 1em;
+  border-radius: 8px;
+  margin-bottom: 5em;
+}
+
+.estrellas{
+  text-align: center;
+}
+
+.estrellas img{
+  height: 8rem;
+  width: 15rem;
+}
+
+/* Colores user */
+
+.Llistausuaris {
+  background-color: var(--usuario-bg-light, #f3f3f3);
+}
+
+.ranking li:nth-child(even) {
+  background-color: var(--admin-bg-light);
+  color: black;
+}
+
+.ranking li {
+  background-color: var(--admin-bg-dark);
+}
+
+@media (min-width: 720px) {
+
+  /*Multimedia*/
+  #audio {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 150px;
+    z-index: 10;
+  }
+  .letras{
+    grid-template-columns: repeat(8,1fr);
+  }
+
+.mapa iframe {
+  width: 550px;
+  height: 500px;
+}
+.contenido-mapa{
+  margin-top: 5em;
+}
+  #Cont_LlistaU{
+    margin-top: 8rem;
+  }
+  .Llistausuaris{
+    grid-template-columns: repeat(5, 0.25fr);
+    grid-template-rows: repeat(2, 0.5fr);
+    
+  }
+  .Llistausuaris li:nth-child(1) { grid-column-start: 1; grid-row-start: 1; }
+  .Llistausuaris li:nth-child(2) { grid-column-start: 2; grid-row-start: 1; }
+  .Llistausuaris li:nth-child(3) { grid-column-start: 3; grid-row-start: 1; }
+  .Llistausuaris li:nth-child(4) { grid-column-start: 4; grid-row-start: 1;}
+  .Llistausuaris li:nth-child(5) { grid-column-start: 5; grid-row-start: 1; }
+  .Llistausuaris li:nth-child(6) { grid-column-start: 1; grid-row-start: 2; }
+  .Llistausuaris li:nth-child(7) { grid-column-start: 2; grid-row-start: 2; }
+  .Llistausuaris li:nth-child(8) { grid-column-start: 3; grid-row-start: 2; }
+  .Llistausuaris li:nth-child(9) { grid-column-start: 4; grid-row-start: 2;}
+  .Llistausuaris li:nth-child(10) { grid-column-start: 5; grid-row-start: 2;}
+
+  .estrellas img{
+    height: 12rem;
+    width: 20rem;
+    margin-top: 3em;
+}
+}
+
+@media (min-width: 1024px) {
+
+  /*Multimedia*/
+  #audio {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 150px;
+    z-index: 10;
+  }
+  .letras{
+    grid-template-columns: repeat(12,1fr);
+  }
+  #Cont_LlistaU{
+    margin-top: 8rem;
+  }
+  .Llistausuaris{
+    grid-template-columns: repeat(5, 0.5fr);
+    
+  }
+  .estrellas img{
+    margin-top: 5rem;
+}
+}

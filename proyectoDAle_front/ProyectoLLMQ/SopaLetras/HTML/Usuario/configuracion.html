@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Sopa de Letras: Configuracion</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Pagina para realizar los cambios oportunos en las sopas o las paginas">
+    <meta name="author" content="Alexandra, Pau y Paulo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/estructura.css">
+    <link rel="stylesheet" href="../CSS/base.css">
+    <link rel="stylesheet" href="../CSS/componentes.css">
+    <link rel="stylesheet" href="../CSS/responsive.css">
+    <link rel="stylesheet" href="../CSS/variables.css">
+    <link rel="stylesheet" href="../CSS/formularios.css">
+    <link rel="icon" type="image/x-icon" href="../Multimedia/Imagenes/favicon.ico">
+</head>
+
+<body class="user">
+    <div class="contenedor_imagen_fondo">
+        <header>
+
+
+            <div class="menu_nav">
+                <div class="menu_header">
+                    <div class="logo">
+                        <a href="./wordSearch.html">
+                            <img src="../Multimedia/Imagenes/logo2.PNG" alt="Logo" height="80" width="80">
+                        </a>
+                    </div>
+                    <div class="sidebar">
+                        <a href="#mySidebar" class="sidebar-abrir-boton">☰</a>
+                    </div>
+                    <div class="sidebar-nav" id="mySidebar">
+                        <a href="#" class="sidebar-cerrar-boton">&times;</a>
+                        <ul>
+                            <li class="lista"><a href="./wordSearch.html">Inicio</a>
+                                <ul>
+                                    <li class="sublista"><a href="./registro_usuario.html">Registrarse</a></li>
+                                    <li class="sublista"><a href="./solicitud_admin.html">Solicitud Admin</a></li>
+                                </ul>
+                            </li>
+                            <li class="lista"><a href="./juego.html">Juego</a>
+                                <ul>
+                                    <li class="sublista"><a href="./consultar_puntuacion.html">Mi puntuación</a></li>
+                                </ul>
+                            </li>
+                            <li class="lista"><a href="./ayuda_usuario.html">Ayuda</a></li>
+                            <li class="lista"><a href="./otro_contenido.html">Otros</a>
+                                <ul>
+                                    <li class="sublista"><a href="./contacto.html">Contacto</a></li>
+                                    <li class="sublista"><a href="./mapa.html">Mapa</a></li>
+                                    <li class="sublista"><a href="./configuracion.html">Configuración</a></li>
+                                    <li class="sublista"><a href="./noticias.html">Noticias web</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="overlay"></div>
+                    <script>
+                        function w3_open() {
+                            document.getElementById("mySidebar").style.display = "block";
+                        }
+                        function w3_close() {
+                            document.getElementById("mySidebar").style.display = "none";
+                        }
+                    </script>
+
+                </div>
+                <div id="logout">
+                    <div>
+                        <a href="../Administrador/admin_wordSearch.html">Área Privada</a>
+                    </div>
+                    <div>
+                        <button>
+                            <a href="wordSearch.html">Logout <img src="../Multimedia/Imagenes/logout.png" alt="Logout"
+                                    width="15" height="15"></a>
+                        </button>
+                    </div>
+                </div>
+
+                <aside id="aside-menu">
+                    <img src="../Multimedia/Imagenes/ranking.png.png" alt="" width="100" height="100">
+                    <div>
+                        <h5>Ranking de Usuarios Registrados:</h5>
+                        <ul>
+                            <li><a href="./RankingUsuarios/primerUsuario.html"> Primero</a></li>
+                            <li><a href="./RankingUsuarios/segundoUsuario.html"> Segundo</a></li>
+                            <li><a href="./RankingUsuarios/tercerUsuario.html"> Tercero</a></li>
+                        </ul>
+                    </div>
+
+                </aside>
+            </div>
+        </header>
+        <main>
+            <div class="formulario-configuracion">
+                <form action="procesar_configuracion.php" method="post" target="_blank" autocomplete="on">
+                    <fieldset>
+                        <div class="configuracion">
+                            <legend>Configuración de la página:</legend>
+                            <div class="idioma">
+                                <h4>Idioma:</h4>
+
+                                <div class="configurar">
+                                    <ol>
+                                        <li>
+                                            <label for="idioma">Seleccione su Idioma:</label>
+                                            <select name="idioma" id="idioma">
+                                                <option value="castellano"> Castellano </option>
+                                                <option value="catalan"> Catalán </option>
+                                                <option value="ingles"> Ingles </option>
+                                                <option value="portugues"> Portugues </option>
+                                                <option value="aleman"> Alemán </option>
+                                            </select>
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="sonido">
+                                <h4>Sonido:</h4>
+                                <div class="configurar">
+                                    <ol>
+                                        <li><label for="nivelSonidoGeneral">Nivel General: </label>
+                                            <input type="range" id="nivelSonidoGeneral" name="nivelSonidoGeneral"
+                                                min="0" max="10">
+                                        </li>
+                                        <li><label for="nivelSonidoAlertas">Nivel Efectos: </label>
+                                            <input type="range" id="nivelSonidoAlertas" name="nivelSonidoAlertas"
+                                                min="0" max="10">
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="tamaño">
+                                <h4>Tamaño Letras: </h4>
+                                <div class="configurar">
+                                    <ol>
+                                        <li><label for="nivelLetras">Tamaño de las Letras: </label>
+                                            <input type="range" id="nivelLetras" name="nivelLetras" min="0" max="10">
+                                        </li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="color">
+                                <h4>Color: </h4>
+                                <div class="configurar">
+                                    <ul>
+                                        <li><label for="colorCorrecto"> Letra Correcta:</label>
+                                            <input type="color" id="colorCorrecto" name="colorCorrecto" value="#02fc18">
+                                        </li>
+                                        <li><label for="colorIncorrecto"> Letra Incorrecta</label>
+                                            <input type="color" id="colorIncorrecto" name="colorIncorrecto"
+                                                value="#fc2b02">
+                                        </li>
+                                    </ul>
+                                    <ul>
+                                        <li><label for="colorTabla"> Elige el color de la tabla:</label>
+                                            <input type="color" id="colorTabla" name="colorTabla" value="#02fc20">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="modo">
+                                <p>Modo daltónico</p>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                            <input type="hidden" name="id_configuracion" value="12345">
+                    </fieldset>
+
+
+                    <p>¿Desea conservar los cambios realizados?</p>
+                    <input type="submit" value="Confirmar">
+                    <input type="reset" value="Restablecer">
+                </form>
+            </div>
+        </main>
+
+        <footer>
+            <div class="redes-sociales">
+                <a href="https://www.instagram.com/?next=%2F"><img
+                        src="../Multimedia/Imagenes/redes/Instagram_icon.png.webp" alt="Not Found IMG" height="30"
+                        width="30"></a>
+                <a href="https://www.facebook.com/pablo.contento.710"><img
+                        src="../Multimedia/Imagenes/redes/Facebook_Logo.png" alt="Not Found ING" height="30"
+                        width="30"></a>
+            </div>
+            <div class="contenido-footer">
+                <i><b>Correo: </b><a href="mailto:agonzalez1055@alumnes.politecnicllevant.cat">AGonzalez,</a> <a
+                        href="mailto:pescanellas925@alumnes.politecnicllevant.cat ">PEscanellas </a><a
+                        href="mailto:pfebrer408@alumnes.politecnicllevant.cat ">&amp; PFebrer</a></i>
+                <b><a href="../Usuario/wordSearch.html"><img src="../Multimedia/Imagenes/favicon.ico"
+                            alt="No se ha encontrado el logo" height="20" width="20">Word Search, sopa de letras</a></b>
+            </div>
+        </footer>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+/* Reset y configuración global */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html{
+  font-family: 'eb_garamond_bold', sans-serif;
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/*Colores User*/
+body .user{
+  color: var(--usuario-secondary);
+} 
+
+.user a{
+  color: var(--usuario-accent);
+}
+
+/*Colores Admin*/
+body .admin{
+  color: var(--admin-secondary);
+} 
+
+.admin a{
+  color: var(--admin-accent);
+}

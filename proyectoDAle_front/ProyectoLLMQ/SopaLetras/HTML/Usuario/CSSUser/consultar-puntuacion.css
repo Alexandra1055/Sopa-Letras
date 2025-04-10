@@ -1,0 +1,69 @@
+main {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.puntuacion{
+    margin-bottom: 4em;
+}
+
+.dificultat{
+    color: white;
+}
+
+
+.puntuacion ul {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 1rem;
+    font-weight: bold;
+}
+
+.puntuacion ul li {    
+    align-items: center;
+    background: #10316b;
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+}
+
+.puntuacion ul li ul li{
+    color: #d29c28;
+    background-color: rgb(230, 230, 230);
+}
+
+@media (min-width: 720px){
+    
+    .puntuacion ul{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    main{
+        margin-top: 7rem;
+        margin-bottom: 7rem;
+    }
+   
+}
+
+@media (min-width: 1024px){
+    
+    .puntuacion ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin: 1rem;
+        font-weight: bold;
+    }
+
+    .puntuacion ul li ul li{
+        width: 10rem;
+    }
+    main{
+        align-items: center;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
+  
+}

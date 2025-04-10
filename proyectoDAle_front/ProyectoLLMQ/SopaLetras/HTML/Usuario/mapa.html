@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Sopa de Letras: Mapa</title>
+    <meta charset="UTF-8">
+    <meta name="author" content="Alexandra, Pau y Paulo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/estructura.css">
+    <link rel="stylesheet" href="../CSS/base.css">
+    <link rel="stylesheet" href="../CSS/componentes.css">
+    <link rel="stylesheet" href="../CSS/responsive.css">
+    <link rel="stylesheet" href="../CSS/variables.css">
+    <link rel="icon" type="image/x-icon" href="../Multimedia/Imagenes/favicon.ico">
+</head>
+
+<body class="user">
+    <div class="ondas">
+        <div class="wave"></div>
+        <div class="wave"></div>
+      </div>
+    <div class="contenedor_imagen_fondo">
+        <header>
+
+
+            <div class="menu_nav">
+                <div class="menu_header">
+                    <div class="logo">
+                        <a href="./wordSearch.html">
+                            <img src="../Multimedia/Imagenes/logo2.PNG" alt="Logo" height="80" width="80">
+                        </a>
+                    </div>
+                    <div class="sidebar">
+                        <a href="#mySidebar" class="sidebar-abrir-boton">☰</a>
+                    </div>
+                    <div class="sidebar-nav" id="mySidebar">
+                        <a href="#" class="sidebar-cerrar-boton">&times;</a>
+                        <ul>
+                            <li class="lista"><a href="./wordSearch.html">Inicio</a>
+                                <ul>
+                                    <li class="sublista"><a href="./registro_usuario.html">Registrarse</a></li>
+                                    <li class="sublista"><a href="./solicitud_admin.html">Solicitud Admin</a></li>
+                                </ul>
+                            </li>
+                            <li class="lista"><a href="./juego.html">Juego</a>
+                                <ul>
+                                    <li class="sublista"><a href="./consultar_puntuacion.html">Mi puntuación</a></li>
+                                </ul>
+                            </li>
+                            <li class="lista"><a href="./ayuda_usuario.html">Ayuda</a></li>
+                            <li class="lista"><a href="./otro_contenido.html">Otros</a>
+                                <ul>
+                                    <li class="sublista"><a href="./contacto.html">Contacto</a></li>
+                                    <li class="sublista"><a href="./mapa.html">Mapa</a></li>
+                                    <li class="sublista"><a href="./configuracion.html">Configuración</a></li>
+                                    <li class="sublista"><a href="./noticias.html">Noticias web</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="overlay"></div>
+                    <script>
+                        function w3_open() {
+                            document.getElementById("mySidebar").style.display = "block";
+                        }
+                        function w3_close() {
+                            document.getElementById("mySidebar").style.display = "none";
+                        }
+                    </script>
+
+                </div>
+                <div id="logout">
+                    <div>
+                        <a href="../Administrador/admin_wordSearch.html">Área Privada</a>
+                    </div>
+                    <div>
+                        <button>
+                            <a href="wordSearch.html">Logout <img src="../Multimedia/Imagenes/logout.png" alt="Logout"
+                                    width="15" height="15"></a>
+                        </button>
+                    </div>
+                </div>
+
+                <aside id="aside-menu">
+                    <img src="../Multimedia/Imagenes/ranking.png.png" alt="" width="100" height="100">
+                    <div>
+                        <h5>Ranking de Usuarios Registrados:</h5>
+                        <ul>
+                            <li><a href="./RankingUsuarios/primerUsuario.html"> Primero</a></li>
+                            <li><a href="./RankingUsuarios/segundoUsuario.html"> Segundo</a></li>
+                            <li><a href="./RankingUsuarios/tercerUsuario.html"> Tercero</a></li>
+                        </ul>
+                    </div>
+
+                </aside>
+            </div>
+        </header>
+        <main>
+            <div class="contenido-mapa">
+                <div class="mapa">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3075.900635013996!2d3.1978576772519975!3d39.561848007224185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1296490c7c47e9c7%3A0x69f4dbf744f51192!2sCIFP%20Polit%C3%A8cnic%20Llevant!5e0!3m2!1ses!2ses!4v1730039687302!5m2!1ses!2ses"
+                         style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="redes-sociales">
+                <a href="https://www.instagram.com/?next=%2F"><img
+                        src="../Multimedia/Imagenes/redes/Instagram_icon.png.webp" alt="Not Found IMG" height="30"
+                        width="30"></a>
+                <a href="https://www.facebook.com/pablo.contento.710"><img
+                        src="../Multimedia/Imagenes/redes/Facebook_Logo.png" alt="Not Found ING" height="30"
+                        width="30"></a>
+            </div>
+            <div class="contenido-footer">
+                <i><b>Correo: </b><a href="mailto:agonzalez1055@alumnes.politecnicllevant.cat">AGonzalez,</a> <a
+                        href="mailto:pescanellas925@alumnes.politecnicllevant.cat ">PEscanellas </a><a
+                        href="mailto:pfebrer408@alumnes.politecnicllevant.cat ">&amp; PFebrer</a></i>
+                <b><a href="../Usuario/wordSearch.html"><img src="../Multimedia/Imagenes/favicon.ico"
+                            alt="No se ha encontrado el logo" height="20" width="20">Word Search, sopa de letras</a></b>
+            </div>
+        </footer>
+
+    </div>
+</body>
+
+</html>

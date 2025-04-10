@@ -1,0 +1,19 @@
+:root {
+    /* Colores usuario */
+    --usuario-primary: #10316b;
+    --usuario-secondary: #fad584;
+    --usuario-accent: #cca858;
+    --usuario-bg-light: #e6c57df5;
+    --usuario-bg-dark: #0a1f42;
+    --usuario-hover: #1c273d;
+    --usuario-hover-text: #f7bc3e;
+    
+    /* Colores admin */
+    --admin-primary: #242c3c;
+    --admin-secondary: #cca858;
+    --admin-accent: #a37d2a;
+    --admin-bg-light: #cca858;
+    --admin-bg-dark: #1b2b49;
+    --admin-hover: #1c273d;
+    --admin-hover-text: #d29c28;
+}

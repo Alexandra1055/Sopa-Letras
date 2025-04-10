@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Sopa de Letras: Noticias</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Pagina con las ultimas noticias">
+    <meta name="author" content="Alexandra, Pau y Paulo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/estructura.css">
+    <link rel="stylesheet" href="../CSS/base.css">
+    <link rel="stylesheet" href="../CSS/componentes.css">
+    <link rel="stylesheet" href="../CSS/responsive.css">
+    <link rel="stylesheet" href="../CSS/variables.css">
+    <link rel="stylesheet" href="../CSS/articulos.css">
+    <link rel="icon" type="image/x-icon" href="../Multimedia/Imagenes/favicon.ico">
+</head>
+
+<body class="user">
+    <div class="ondas">
+        <div class="wave"></div>
+        <div class="wave"></div>
+      </div>
+    <div class="contenedor_imagen_fondo">
+        <div class="imagen_fondo">
+
+        </div>
+        <header>
+
+
+            <div class="menu_nav">
+                <div class="menu_header">
+                    <div class="logo">
+                        <a href="./wordSearch.html">
+                            <img src="../Multimedia/Imagenes/logo2.PNG" alt="Logo" height="80" width="80">
+                        </a>
+                    </div>
+                    <div class="sidebar">
+                        <a href="#mySidebar" class="sidebar-abrir-boton">☰</a>
+                    </div>
+                    <div class="sidebar-nav" id="mySidebar">
+                        <a href="#" class="sidebar-cerrar-boton">&times;</a>
+                        <ul>
+                            <li class="lista"><a href="./wordSearch.html">Inicio</a>
+                                <ul>
+                                    <li class="sublista"><a href="./registro_usuario.html">Registrarse</a></li>
+                                    <li class="sublista"><a href="./solicitud_admin.html">Solicitud Admin</a></li>
+                                </ul>
+                            </li>
+                            <li class="lista"><a href="./juego.html">Juego</a>
+                                <ul>
+                                    <li class="sublista"><a href="./consultar_puntuacion.html">Mi puntuación</a></li>
+                                </ul>
+                            </li>
+                            <li class="lista"><a href="./ayuda_usuario.html">Ayuda</a></li>
+                            <li class="lista"><a href="./otro_contenido.html">Otros</a>
+                                <ul>
+                                    <li class="sublista"><a href="./contacto.html">Contacto</a></li>
+                                    <li class="sublista"><a href="./mapa.html">Mapa</a></li>
+                                    <li class="sublista"><a href="./configuracion.html">Configuración</a></li>
+                                    <li class="sublista"><a href="./noticias.html">Noticias web</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="overlay"></div>
+                    <script>
+                        function w3_open() {
+                            document.getElementById("mySidebar").style.display = "block";
+                        }
+                        function w3_close() {
+                            document.getElementById("mySidebar").style.display = "none";
+                        }
+                    </script>
+
+                </div>
+                <div id="logout">
+                    <div>
+                        <a href="../Administrador/admin_wordSearch.html">Área Privada</a>
+                    </div>
+                    <div>
+                        <button>
+                            <a href="wordSearch.html">Logout <img src="../Multimedia/Imagenes/logout.png" alt="Logout"
+                                    width="15" height="15"></a>
+                        </button>
+                    </div>
+                </div>
+
+                <aside id="aside-menu">
+                    <img src="../Multimedia/Imagenes/ranking.png.png" alt="" width="100" height="100">
+                    <div>
+                        <h5>Ranking de Usuarios Registrados:</h5>
+                        <ul>
+                            <li><a href="./RankingUsuarios/primerUsuario.html"> Primero</a></li>
+                            <li><a href="./RankingUsuarios/segundoUsuario.html"> Segundo</a></li>
+                            <li><a href="./RankingUsuarios/tercerUsuario.html"> Tercero</a></li>
+                        </ul>
+                    </div>
+
+                </aside>
+            </div>
+        </header>
+        <main>
+            <section class="contenido-noticias">
+                <div class="articulo1">
+                    <article class="articulo-noticia">
+                        <div class="contenido-articulo">
+                            <h5>El origen y la historia de las Sopa de Letras</h5>
+                            <a href="https://www.wordsearch365.com/es/estrategias/historia-de-las-sopa-de-letras"
+                                target="_blank"><img src="../Multimedia/Imagenes/Imagen_indice.png" alt="Not Found IMG"
+                                    height="200" width="200"></a>
+                            <i>La historia de las Sopa de Letras está envuelta en muchas incertidumbres, pero algo
+                                sorprendente
+                                está
+                                bien
+                                claro: es un juego todavía muy joven...</i>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="articulo2">
+                    <article class="articulo-noticia">
+                        <div class="contenido-articulo">
+                            <h5>10 beneficios de jugar a Sopa de Letras</h5>
+                            <a href="https://www.wordsearch365.com/es/estrategias/beneficios-jugar-sopa-de-letras"
+                                target="_blank"><img src="../Multimedia/Imagenes/beneficios-jugar-sopa-de-letras.jpg"
+                                    alt="Not Found IMG" height="200" width="200"></a>
+                            <p><i>Mucho del éxito de las Sopas de Letras puede ser explicado por la combinación de
+                                    entretenimiento y
+                                    plusvalías
+                                    inmateriales que provee a los jugadores...</i></p>
+                        </div>
+                    </article>
+                </div>
+                <div class="articulo3">
+                    <article class="articulo-noticia">
+                        <div class="contenido-articulo">
+                            <h5>Beneficios para adultos mayores</h5>
+                            <a href="https://trinidad-mo.com/sopa-de-letras-para-adultos-mayores/"
+                            target="_blank"><img src="../Multimedia/Imagenes/sopa_mayores.jpeg"
+                                alt="Not Found IMG" height="200" width="200"></a>
+                            <i>En este artículo descubrimos, cómo las sopas de letras se convierten en una herramienta poderosa para mejorar la 
+                                calidad de vida de los adultos mayores, fomentando la diversión y el bienestar.</i>
+                        </div>
+                    </article>
+                </div>
+                <div class="articulo4">
+                    <article class="articulo-noticia">
+                        <div class="contenido-articulo">
+                            <h5>Wikipedia: Sopa de Letras</h5>
+                            <a href="https://en-m-wikipedia-org.translate.goog/wiki/Alphabet_soup_(linguistics)?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=rq"
+                                target="_blank"><img src="../Multimedia/Imagenes/" alt="Not Found IMG"
+                                    height="200" width="200"></a>
+                            <i>La metáfora de la sopa de letras se ha utilizado para describir problemas de comprensión que tienen importantes efectos en la investigación académica, incluyendo la confusión entre diferentes teorías. </i>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="articulo5">
+                    <article class="articulo-noticia">
+                        <div class="contenido-articulo">
+                            <h5>
+                                ¿Como resolver rápidamente una sopa de letras?
+                            </h5>
+                            <a href="https://www.lanacion.com.ar/juegos/trucos-y-consejos/como-resolver-una-sopa-de-letras-nivel-facil-intermedio-y-dificil-nid11072024/"
+                                target="_blank"><img src="../Multimedia/Imagenes/beneficios-jugar-sopa-de-letras.jpg"
+                                    alt="Not Found IMG" height="200" width="200"></a>
+                            <p><i>El objetivo es encontrar y marcar todas las palabras ocultas dentro de la grilla, que pueden estar dispuestas de forma vertical, horizontal o diagonal. En el nivel fácil, los términos suelen estar ubicados de izquierda a derecha y de arriba abajo, mientras que en los niveles intermedio y difícil suelen incluirse palabras en diagonal o al revés....</i></p>
+                        </div>
+                    </article>
+                </div>
+                <div class="articulo6">
+                    <article class="articulo-noticia">
+                        <div class="contenido-articulo">
+                            <h5>10 trucos para resolver una sopa de letras</h5>
+                            <a href="https://www.lanacion.com.ar/juegos/trucos-y-consejos/10-trucos-para-resolver-una-sopa-de-letras-nid01052024/"
+                            target="_blank"><img src="../Multimedia/Imagenes/beneficios-jugar-sopa-de-letras.jpg"
+                                alt="Not Found IMG" height="200" width="200"></a>
+                            <i> Es que a pesar de su sencillez, la sopa de letras continúa siendo un juego desafiante y divertido que sigue atrayendo a nuevas generaciones de jugadores.</i>
+                        </div>
+                    </article>
+                </div>
+                
+            </section>
+        </main>
+
+        <footer>
+            <div class="redes-sociales">
+                <a href="https://www.instagram.com/?next=%2F"><img
+                        src="../Multimedia/Imagenes/redes/Instagram_icon.png.webp" alt="Not Found IMG" height="30"
+                        width="30"></a>
+                <a href="https://www.facebook.com/pablo.contento.710"><img
+                        src="../Multimedia/Imagenes/redes/Facebook_Logo.png" alt="Not Found ING" height="30"
+                        width="30"></a>
+            </div>
+            <div class="contenido-footer">
+                <i><b>Correo: </b><a href="mailto:agonzalez1055@alumnes.politecnicllevant.cat">AGonzalez,</a> <a
+                        href="mailto:pescanellas925@alumnes.politecnicllevant.cat ">PEscanellas </a><a
+                        href="mailto:pfebrer408@alumnes.politecnicllevant.cat ">&amp; PFebrer</a></i>
+                <b><a href="../Usuario/wordSearch.html"><img src="../Multimedia/Imagenes/favicon.ico"
+                            alt="No se ha encontrado el logo" height="20" width="20">Word Search, sopa de letras</a></b>
+            </div>
+        </footer>
+
+    </div>
+</body>
+
+</html>

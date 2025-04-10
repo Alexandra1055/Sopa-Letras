@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Hello World
+    <div id="hello"></div>
+    <script>
+        (async ()=>{
+            const query = "select * from prova";
+            const api = await fetch("http://localhost:3000/daw/"+encodeURIComponent(query))
+            const data = await api.json();
+        
+            array_rebuda_noms = data.data.map(r=>r.nom);
+            array_rebuda_ids = data.data.map(r=>r.id);
+            codi_html="<table border=1>";
+            for (let element of array_rebuda_noms) {
+               codi_html=  codi_html + "<tr><td>" + element + "</td></tr>";
+            }
+
+            codi_html= codi_html + "</table>";
+            console.log(codi_html);
+            document.querySelector("#hello").innerHTML=codi_html;
+        })()
+    </script>
+</body>
+</html>

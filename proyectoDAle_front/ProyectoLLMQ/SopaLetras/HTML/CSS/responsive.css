@@ -1,0 +1,164 @@
+/* Tablet */
+@media (min-width: 720px) {
+
+  header{
+    position: fixed;
+    top: 0;
+  }
+
+  header .menu_header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+  }
+
+  header .logo {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .menu_nav {
+    display: flex;
+    flex: 1;
+  }
+
+  .sidebar-abrir-boton,
+  .sidebar-cerrar-boton {
+    display: none;
+  }
+
+  .sidebar-nav {
+    position: static;
+    width: auto;
+    height: auto;
+    display: flex;
+    right: 20px;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .sidebar-nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: 4em;
+  }
+
+  .sidebar-nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 70%;
+    left: -5px;
+    border-radius: 5px;
+    padding: 0.5rem;
+    list-style: none;
+    min-width: 150px;
+  }
+
+
+  #aside-menu {
+    position: fixed;
+    padding: 0.5rem;
+    width: 6rem;
+    top: 25%;
+    right: 3rem;
+    height: 5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 100;
+  }
+
+
+  #aside-menu:hover {
+    width: 8rem;
+    height: auto;
+  }
+
+  #aside-menu img {
+    margin: auto;
+    width: 100%;
+    height: auto;
+  }
+
+  #aside-menu h5 {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  #aside-menu ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  main{
+    margin-top: 5em;
+    margin-bottom: 5em;
+  }
+
+  .footer-iniciouser{
+    position: fixed;
+  }
+
+  .user .ondas { 
+    height: 5%;
+    width:100%;
+    position:absolute;
+    bottom:0;
+    left:0;
+    z-index: -999;
+    background: var(--usuario-primary);
+  }
+  
+  .wave {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; 
+    position: absolute;
+    top: -198px;
+    width: 6400px;
+    height: 198px;
+    animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .wave:nth-of-type(2) {
+    top: -175px;
+    animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
+    opacity: 1;
+  }
+  
+  @keyframes wave {
+    0% {
+      margin-left: 0;
+    }
+    100% {
+      margin-left: -1600px;
+    }
+  }
+  
+  @keyframes swell {
+    0%, 100% {
+      transform: translate3d(0,-25px,0);
+    }
+    50% {
+      transform: translate3d(0,5px,0);
+    }
+  }
+}
+
+/*Ordenador*/
+@media (min-width: 1024px) {
+
+  header nav ul {
+    gap: 2em;
+  }
+
+  main{
+    margin-top: 7em;
+    margin-bottom: 7em;
+  }
+  footer{
+    position: fixed;
+  }
+}

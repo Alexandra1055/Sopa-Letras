@@ -1,0 +1,186 @@
+/* Artículos */
+main .contenido-noticias {
+    width: 100%;
+    height: 80vh;
+    padding: 3rem;
+}
+
+section,
+.contenido-noticias {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+    justify-items: center;
+    margin-bottom: 4em;
+}
+
+
+article .articulo {
+    display: grid;
+    margin: 2em;
+    height: 100%;
+    transition: transform 0.4s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.articulo .contenido-articulo {
+    justify-content: space-around;
+    padding: 2em;
+    height: 80%;
+
+}
+.articulo-noticia{
+    display: flex;
+}
+
+.articulo .contenido-articulo,
+.articulo-noticia .contenido-articulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.articulo-noticia img {
+    display: none;
+}
+
+.articulo1 {
+    background-image: url('../Multimedia/Imagenes/31bf7ea9-e09a-43be-b7c5-d591d01bd423.__CR0\,0\,1920\,1188_PT0_SX970_V1___.jpg');
+}
+
+.articulo2 {
+    background-image: url('../Multimedia/Imagenes/beneficios-jugar-sopa-de-letras.jpg');
+}
+
+.articulo3 {
+    background-image: url('../Multimedia/Imagenes/sopa_mayores.jpeg');
+}
+
+.articulo4 {
+    background-image: url('../Multimedia/Imagenes/persona-resolviendo-sopa-letras_98.webp');
+}
+
+.articulo5 {
+    background-image: url('../Multimedia/Imagenes/7be6a3ad-8662-4451-b6fe-ade6788a3ec9.__CR0\,0\,970\,600_PT0_SX970_V1___.jpg');
+}
+
+.articulo6 {
+    background-image: url('../Multimedia/Imagenes/sopa-de-letras-850x638.png');
+}
+.articulo-noticia .contenido-articulo h5{
+    font-size: 1.1em;
+}
+
+.contenido-noticias>div {
+    border-radius: 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.932);
+    position: relative;
+    overflow: hidden;
+}
+
+.contenido-noticias>div::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(206, 205, 205, 0.11), white);
+    z-index: 1;
+    border-radius: 10px;
+}
+
+.contenido-noticias div {
+    padding: 0.3em;
+    text-align: center;
+     position: relative;
+    z-index: 2; 
+}
+
+.admin .articulo:hover,
+.user .articulo:hover,
+.contenido-noticias>div:hover {
+    background-color: #0e244b;
+    box-shadow: 2px 10px rgba(22, 22, 22, 0.185);
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+
+/*Colores User*/
+.user .articulo,
+.user .ultima_noticia {
+    background-color: var(--usuario-primary);
+    color: var(--usuario-secondary);
+}
+
+.user .articulo-noticia .contenido-articulo {
+    color: var(--usuario-primary);
+}
+
+/*Colores Admin*/
+.admin .noticias_inicio article,
+.admin .noticias_inicio div {
+    background-color: var(--admin-primary);
+}
+
+/* Tablet*/
+@media (min-width: 720px) {
+    .contenido-noticias {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            "item1 item2"
+            "item1 item2"
+            "item3 item5"
+            "item4 item5"
+            "item4 item6";
+        gap: 1em;
+        justify-items: center;
+        margin-top: 5em;
+    }
+
+    .articulo1 {
+        grid-area: item1;
+    }
+
+    .articulo2 {
+        grid-area: item2;
+    }
+
+    .articulo3 {
+        grid-area: item3;
+    }
+
+    .articulo4 {
+        grid-area: item4;
+    }
+
+    .articulo5 {
+        grid-area: item5;
+    }
+
+    .articulo6 {
+        grid-area: item6;
+    }
+
+    .articulo-noticia .contenido-articulo h5{
+        font-size: 1.2em;
+    }
+}
+
+@media (min-width: 1024px) {
+    .contenido-noticias {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "item1 item2 item3"
+            "item1 item2 item3"
+            "item4 item2 item6"
+            "item4 item5 item6";
+        gap: 1em;
+        justify-items: center;
+    }
+
+
+}

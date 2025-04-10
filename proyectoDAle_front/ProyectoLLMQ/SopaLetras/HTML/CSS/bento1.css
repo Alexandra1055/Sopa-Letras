@@ -1,0 +1,83 @@
+.bento1 {
+    margin-top: 2em;
+    margin-bottom: 3em;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+    justify-items: center;
+    align-items: stretch;
+    width: 100%;
+}
+
+.bento1 div,
+.bento1 article {
+    border-radius: 7px;
+}
+
+.bento1 .login,
+.bento1 .articulo1-bento1,
+.bento1 .articulo2-bento1,
+.bento1 .ultima_noticia {
+    padding: 2em;
+    gap: 1em;
+    transition: transform 0.3s ease-in-out;
+}
+
+.bento1 .ultima_noticia {
+    margin-bottom: 2em;
+}
+
+.bento1 img {
+    width: 200px;
+    height: 180px;
+}
+
+/*Colores User*/
+.user .bento1 article,
+.user .bento1 div .ultima_noticia {
+    background-color: var(--usuario-primary);
+    color: var(--usuario-secondary);
+}
+
+@media (min-width: 720px) {
+    .bento1 {
+        padding: 1em;
+    }
+}
+
+/*Estilo bento con grid, cominado con flex para colocar el interior de los articulos*/
+@media (min-width: 1024px) {
+    .bento1 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 4px;
+        align-items: start;
+        height: 80vh;
+    }
+
+    .login {
+        grid-column-start: 2;
+        grid-row-start: 1;
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .bento1 .articulo1-bento1 {
+        grid-row: span 2 / span 2;
+        grid-column-start: 1;
+        grid-row-start: 1;
+        display: flex;
+        margin-top: 2em;
+    }
+
+    .bento1 .articulo2-bento1 {
+        grid-row: span 2 / span 2;
+        display: flex;
+        margin-top: 2em;
+    }
+
+    .bento1 .ultima_noticia {
+        grid-column-start: 2;
+    }
+}

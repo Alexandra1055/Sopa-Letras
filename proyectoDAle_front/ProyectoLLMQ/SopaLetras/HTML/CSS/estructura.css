@@ -1,0 +1,247 @@
+/* Header y Footer */
+header,
+footer {
+  width: 100%;
+  padding: 0.5rem;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+}
+
+header{
+  top: 0;
+}
+
+/*Header*/
+header .menu_header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 6em;
+}
+
+header .logo {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.admin header.login-admin{
+  display: flex;
+  justify-content: space-around;
+}
+
+header .menu_nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 0.2em;
+}
+
+header .menu_nav .sidebar-nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.sidebar-nav {
+  position: fixed;
+  top: 0;
+  right: -90%;
+  width: 60%;
+  height: 100%;
+  transition: right 0.3s ease-in-out;
+  z-index: 1000;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  opacity: 0.95;
+}
+
+
+#mySidebar:target {
+  right: 0;
+}
+
+
+.sidebar-cerrar-boton {
+  font-size: 2rem;
+  text-decoration: none;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.sidebar-abrir-boton {
+  font-size: 2rem;
+  text-decoration: none;
+  cursor: pointer;
+}
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-nav ul li {
+  position: relative;
+  padding: 0.5rem;
+}
+
+.sidebar-nav ul li ul {
+  display: none;
+  position: absolute;
+  top: 7%;
+  left: 60px;
+  border-radius: 5px;
+  padding: 0.5rem;
+  list-style: none;
+  min-width: 150px;
+}
+
+.sidebar-nav ul li:hover > ul {
+  display: block;
+}
+
+header #logout {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 1em;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  z-index: 9;
+}
+
+#mySidebar:target + .overlay {
+  opacity: 1;
+  visibility: visible;
+  animation: fade-in 300ms ease-in-out forwards;
+}
+
+
+/*Aside*/
+#aside-menu {
+  width: 85%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0.6rem;
+  margin-top: 0.5em;
+  border-radius: 10px;
+  justify-content: center;
+}
+
+#aside-menu div {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+#aside-menu ul{
+  display: flex;
+  flex-direction: row;
+
+}
+
+#aside-menu h5,
+#aside-menu ul a{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+
+#aside-menu img {
+  margin: auto;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+/* Main principal, cada elemento tiene retoques en este campo*/
+main {
+  width: 100%;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding: 1rem;  
+  overflow-y: auto;
+}
+
+/*Footer*/
+footer {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  bottom: 0; 
+  width: 100%;
+  position: fixed;
+}
+
+footer div{
+  display: flex;
+  gap: 1em;
+  align-items: flex-end;
+}
+
+/*Colores User*/
+
+.user header, .user footer{
+  background-color: var(--usuario-primary);
+  color: var(--usuario-secondary);
+}
+
+.user .sidebar-nav{
+  color: var(--usuario-secondary);
+  background-color: var(--usuario-primary);
+}
+.user .sidebar-nav ul li ul {
+  background-color: var(--usuario-primary);
+
+}
+
+.user .overlay{
+  background-image: linear-gradient(var(--usuario-primary), transparent);
+}
+
+.user #aside-menu{
+  background: var(--usuario-secondary);
+  color: var(--usuario-primary);
+}
+
+.user #aside-menu a{
+  color: var(--usuario-primary);
+}
+
+/*Colores Admin*/
+.admin header, .admin footer{
+  background-color: var(--admin-primary);
+  color: var(--admin-secondary);
+}
+
+.admin .sidebar-nav, .admin .sidebar-nav a{
+  color: var(--admin-secondary);
+  background-color: var(--admin-primary);
+}
+.admin .sidebar-nav ul li ul {
+  background-color: var(--admin-primary);
+}
+
+.admin .overlay{
+  background-image: linear-gradient(var(--admin-primary), transparent);
+}
+
+.admin #aside-menu{
+  background: var(--admin-secondary);
+  color: var(--admin-primary);
+}

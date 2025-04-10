@@ -1,0 +1,342 @@
+
+main form {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgb(156, 156, 156);
+    text-align: center;
+    margin-bottom: 4em;
+}
+.formulario-configuracion{
+    gap: 1.5rem;
+    margin: auto;
+    padding: 1.5rem;
+}
+
+fieldset~.configuracion{
+    width: 100%;
+     display: grid;
+    border: 2px solid var(--primary-color, #333);
+    border-radius: 8px;
+    padding: 1rem;
+    gap: 1.5rem;
+}
+
+.configuracion {
+    display: grid;
+    grid-template-areas: 
+        "legend"
+        "idioma"
+        "sonido"
+        "tamano"
+        "color"
+        "modo";
+    gap: 1rem;
+    grid-template-columns: 1fr;
+}
+
+.configuracion legend {
+    grid-area: legend;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+.idioma {
+    grid-area: idioma;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+select {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 2px solid var(--primary-color);
+    background-color: #f9f9f9;
+    font-size: 1rem;
+}
+
+.sonido {
+    grid-area: sonido;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+input[type="range"] {
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+}
+
+.tamano {
+    grid-area: tamano;
+}
+
+.color {
+    grid-area: color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+input[type="color"] {
+    width: 25px;
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modo {
+    grid-area: modo;
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.switch {
+    position: relative;
+    width: 50px;
+    height: 26px;
+    margin-bottom: 2em;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 26px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+.formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+.estructura-form, .estructura-form-admin{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-column1,.form-column2,.descripcioConsulta, .estructura-form-contacto{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login, .loginadmin {
+    padding: 1em;
+    width: 90%;
+    display: flex;
+    align-items: center;
+}
+.contenidormain{
+    display: flex;
+    justify-content: center;
+}
+.login form, .loginadmin form , .loginadmin form p{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+main form fieldset {
+    border: none;
+    padding: 0;
+}
+
+main form legend {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+
+main form input[type="text"],
+main form input[type="password"],
+main form input[type="email"],
+main form select,
+main form input[type="date"],
+main form textarea {
+    width: 70%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    margin: 0.5rem;
+}
+
+main form textarea {
+    resize: vertical;
+}
+
+main form a {
+    text-decoration: none;
+}
+
+.formulario-eliminar-sopas{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+}
+.formulario-eliminar-sopas div{
+    margin-top: 1em;
+}
+.formulario-eliminar-sopas form{
+    margin-bottom: 1em;
+}
+
+/*Colores User*/
+
+.user main form{
+    background-color: var(--usuario-bg-light);
+}
+.user main form legend{
+    color: var(--usuario-primary);
+}
+
+.user main form a{ 
+    color: var(--usuario-hover);
+}
+
+.user main form a:hover {
+    color: var(--usuario-primary);
+}
+
+/*Colores Admin*/
+.admin main form{
+    background-color: var(--admin-bg-light);
+}
+.admin main form legend{
+    color: var(--admin-primary);
+}
+
+.admin main form a{ 
+    color: var(--admin-hover);
+}
+
+.admin main form a:hover {
+    color: var(--admin-primary);
+}
+
+
+/* Tablet: Formularios */
+@media (min-width: 720px) {
+
+    main form .formulario {
+        max-width: 60%;
+        
+    }
+    .formulario{
+        margin-top: 8rem;
+        margin-bottom: 3.7rem;
+        
+    }
+    .contenidormain{
+        margin-top:2.5rem;
+    }
+    .login, .loginadmin {
+        align-items: center;
+        width: 350px;
+    }
+
+    .login form {
+        width: 100%;
+        height: auto;
+        margin-top: 4.5rem;
+    }
+    .formulario-configuracion{
+        margin-top: 5em;
+    }
+    
+    .configuracion {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: 
+            "legend legend legend"
+            "idioma tamano sonido"
+            "idioma color sonido"
+            "modo modo modo";
+    }
+    .formulario-eliminar-sopas{
+        padding: 2em;
+    }
+
+}
+
+/* Ordenador: Formularios */
+@media (min-width: 1024px) {
+
+    main .formulario form{
+        width: 70%;
+    }
+
+    main .formulario .estructura-form,main .formulario .estructura-form-admin{
+        flex-direction: row;
+        padding: 1em;
+    }
+
+    .estructura-form-admin{
+        flex-wrap: wrap;
+    }
+    .formulario{
+        margin-top: 7rem;
+        margin-bottom: 1rem;
+    }
+    .loginadmin {
+        align-items: center;
+        width: 550px;
+        max-width: 800px;
+    }
+    .form-column1,.form-column2 {
+        gap: 0.5em;
+        width: 48%;
+    }
+    .descripcioConsulta{
+        width: 100%;
+    }
+    input[type="color"] {
+        width: 35px;
+        height: 35px;
+    }
+}

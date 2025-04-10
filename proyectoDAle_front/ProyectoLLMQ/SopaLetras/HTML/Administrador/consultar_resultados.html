@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Administración: Consultar resultados Usuarios</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Pagina donde saldrá reflejado el resultado de todos los usuarios registrados">
+    <meta name="author" content="Alexandra, Pau y Paulo">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/estructura.css">
+    <link rel="stylesheet" href="../CSS/base.css">
+    <link rel="stylesheet" href="../CSS/componentes.css">
+    <link rel="stylesheet" href="../CSS/responsive.css">
+    <link rel="stylesheet" href="../CSS/variables.css">
+    <link rel="stylesheet" href="../CSS/tabla.css">
+    <link rel="icon" type="image/x-icon" href="../Multimedia/Imagenes/favicon.ico">
+</head>
+
+<body class="admin">
+    <header>
+        <div class="menu_nav">
+            <div class="menu_header">
+                <div class="logo">
+                    <a href="../Usuario/wordSearch.html" class="logo"><img src="../Multimedia/Imagenes/logoadmin.png"
+                            alt="Not Found IMG" height="80" width="80"></a>
+                </div>
+                <div class="sidebar">
+                    <a href="#mySidebar" class="sidebar-abrir-boton">☰</a>
+                </div>
+                <div class="sidebar-nav" id="mySidebar">
+                    <a href="#" class="sidebar-cerrar-boton">&times;</a>
+                    <ul>
+                        <li class="lista">Consultar:
+                            <ul>
+                                <li class="sublista"><a href="./consulta_usuarios.html">Consulta Usuarios</a></li>
+                                <li class="sublista"><a href="./consulta_sopas.html">Consulta Sopas</a></li>
+                                <li class="sublista"><a href="./consultar_resultados.html">Consultar Resultados</a></li>
+                                <li class="sublista"><a href="./consulta_ranking.html">Consultar Ranking</a></li>
+                            </ul>
+                        </li>
+                        <li class="lista">Altas:
+                            <ul>
+                                <li class="sublista"><a href="./alta_sopas.html">Alta Sopas de Letras</a></li>
+                            </ul>
+                        </li>
+                        <li class="lista">Bajas:
+                            <ul>
+                                <li class="sublista"><a href="./baja_usuarios.html">Baja Usuario</a></li>
+                                <li class="sublista"><a href="./baja_sopas.html">Baja Sopa de Letras</a></li>
+                            </ul>
+                        </li>
+                        <li class="lista"><a href="./ayuda_admin.html">Ayuda</a></li>
+                    </ul>
+                </div>
+                <div class="overlay"></div>
+                <script>
+                    function w3_open() {
+                        document.getElementById("mySidebar").style.display = "block";
+                    }
+                    function w3_close() {
+                        document.getElementById("mySidebar").style.display = "none";
+                    }
+                </script>
+
+            </div>
+            <div id="logout">
+                <button>
+                    <a href="../Usuario/wordSearch.html">Logout <img src="../Multimedia/Imagenes/logout.png"
+                            alt="Logout" width="15" height="15"></a>
+                </button>
+            </div>
+    </header>
+    <main>
+        <div class="main-table-container">
+            <h2>Resultados Sopa de Letras</h2>
+            <div class="table-container">
+                <div class="tabla1">
+                    <h2>Sopa de letras: Fácil</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Usuarios</th>
+                                <th>Puntuación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Usuario 1</th>
+                                <th>2</th>
+                            </tr>
+                            <tr>
+                                <th>Usuario 2</th>
+                                <th>6</th>
+                            </tr>
+                            <tr>
+                                <th>Usuario 3</th>
+                                <th>9</th>
+                            </tr>
+                            <tr>
+                                <th>Usuario 4</th>
+                                <th>3</th>
+                            </tr>
+                            <tr>
+                                <th>Usuario 5</th>
+                                <th>8</th>
+                            </tr>
+                            <tr>
+                                <th>Usuario 6</th>
+                                <th>10</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tabla2">
+                    <h2>Sopa de letras: Intermedio</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Usuarios</th>
+                                <th>Puntuación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Usuario 1</th>
+                                <th>5</th>
+                            </tr>
+                            <tr>
+                                <th>Usuario 2</th>
+                                <th>1</th>
+                            </tr>
+                            <tr>
+                                <th>Usuario 3</th>
+                                <th>10</th>
+                            </tr>
+                            <tr>
+                                <th>Usuario 4</th>
+                                <th>10</th>
+                            </tr>
+                            <tr>
+                                <th>Usuario 5</th>
+                                <th>4</th>
+                            </tr>
+                            <tr>
+                                <th>Usuario 6</th>
+                                <th>7</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tabla1">
+                    <h2>Sopa de letras: Difícil</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Usuarios</th>
+                                <th>Puntuación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Usuario 1</th>
+                                <th>10</th>
+                            </tr>
+                            <tr>
+                                <th>Usuario 2</th>
+                                <th>1</th>
+                            </tr>
+                            <tr>
+                                <th>Usuario 3</th>
+                                <th>3</th>
+                            </tr>
+                            <tr>
+                                <th>Usuario 4</th>
+                                <th>9</th>
+                            </tr>
+                            <tr>
+                                <th>Usuario 5</th>
+                                <th>10</th>
+                            </tr>
+                            <tr>
+                                <th>Usuario 6</th>
+                                <th>5</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="redes-sociales">
+            <a href="https://www.instagram.com/?next=%2F"><img
+                    src="../Multimedia/Imagenes/redes/Instagram_icon.png.webp" alt="Not Found IMG" height="30"
+                    width="30"></a>
+            <a href="https://www.facebook.com/pablo.contento.710"><img
+                    src="../Multimedia/Imagenes/redes/Facebook_Logo.png" alt="Not Found ING" height="30" width="30"></a>
+        </div>
+        <div class="contenido-footer">
+            <i><b>Correo: </b><a href="mailto:agonzalez1055@alumnes.politecnicllevant.cat">AGonzalez,</a> <a
+                    href="mailto:pescanellas925@alumnes.politecnicllevant.cat ">PEscanellas </a><a
+                    href="mailto:pfebrer408@alumnes.politecnicllevant.cat ">&amp; PFebrer</a></i>
+            <b><a href="../Usuario/wordSearch.html"><img src="../Multimedia/Imagenes/favicon.ico"
+                        alt="No se ha encontrado el logo" height="20" width="20">Word Search, sopa de letras</a></b>
+        </div>
+    </footer>
+
+    </div>
+</body>
+
+</html>
