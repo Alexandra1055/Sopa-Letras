@@ -129,4 +129,19 @@ document.addEventListener("DOMContentLoaded", async () => {
 /* Sonido */
 
 /* Daltonico */
+document.addEventListener("DOMContentLoaded", () => {
+    const daltonicCheckbox = document.querySelector(".modo input[type='checkbox']");
+    const daltonic = localStorage.getItem("modo_daltonico");
+
+    if (daltonic === "true") {
+        document.body.classList.add("daltonic-mode");
+        daltonicCheckbox.checked = true;
+    }
+
+    daltonicCheckbox.addEventListener("change", () => {
+        const activado = daltonicCheckbox.checked;
+        localStorage.setItem("modo_daltonico", activado);
+        document.body.classList.toggle("daltonic-mode", activado);
+    });
+});
 
