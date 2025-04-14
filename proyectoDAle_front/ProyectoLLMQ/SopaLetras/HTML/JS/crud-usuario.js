@@ -9,7 +9,6 @@ if (botoRegistre) {
   });
 }
 
-
 function agafarInfo() {
   const nickusuari = document.querySelector("#nick").value;
   const contrasenya = document.querySelector("#contrasena").value;
@@ -32,14 +31,13 @@ function agafarInfo() {
 
 async function insertarUsuario() {
   const info = agafarInfo();
-
-  const query = `insert into Usuari (nickusuari, nom, llin1, llin2, contrasenya, email, data_naixament) values ('${info.nickusuari}','${info.nom}', '${info.llin1}', '${info.llin2}','${info.contrasenya}', '${info.email}', '${info.data_naixament}')`;
-
+  const query = `INSERT INTO Usuari (nickusuari, nom, llin1, llin2, contrasenya, email, data_naixament)
+                 VALUES ('${info.nickusuari}','${info.nom}', '${info.llin1}', '${info.llin2}',
+                         '${info.contrasenya}', '${info.email}', '${info.data_naixament}')`;
   await create(query);
 }
 
 /* Iniciar sesion Usuario*/
-
 
 const botoLogin = document.querySelector("#loginBoton");
 if (botoLogin) {
@@ -49,30 +47,32 @@ if (botoLogin) {
   });
 }
 
-
 function login() {
   const nickusuari = document.querySelector("#nick").value;
   const contrasenya = document.querySelector("#contrasena").value;
 
-  return {
-    nickusuari,
-    contrasenya,
-  };
+  return { nickusuari, contrasenya };
 }
 
 async function iniciarSesion() {
   const info = login();
-
-  const query = `select nickusuari,contrasenya from Usuari where nickusuari = '${info.nickusuari}' and contrasenya = '${info.contrasenya}'`;
+  const query = `SELECT id_usuari, nickusuari, contrasenya
+                 FROM Usuari
+                 WHERE nickusuari = '${info.nickusuari}'
+                   AND contrasenya = '${info.contrasenya}'`;
 
   const result = await read(query);
 
   if (result && result.data && result.data.length > 0) {
+    const usuario = result.data[0];
+    localStorage.setItem("id_usuari", usuario.id_usuari);
+    localStorage.setItem("nickusuari", usuario.nickusuari);
+
     window.location.href = "http://localhost/ProyectoLLMQ/SopaLetras/HTML/Usuario/juego.html";
   } else {
     alert("No existe el usuario o las credenciales son incorrectas");
   }
-};
+}
 
 /* Iniciar sesion admin */
 const botoLoginAdmin = document.querySelector("#loginBotonAdmin");
@@ -85,18 +85,25 @@ if (botoLoginAdmin) {
 
 async function iniciarSesionAdmin() {
   const info = login();
-  const query = `select u.nickusuari, u.contrasenya, a.id_admin from Usuari u
-    LEFT JOIN Administrador a ON u.id_usuari = a.id_usuari
-    WHERE u.nickusuari = '${info.nickusuari}' AND u.contrasenya = '${info.contrasenya}'`;
+  const query = `SELECT a.id_admin, u.id_usuari, u.nickusuari
+                 FROM Usuari u
+                 INNER JOIN Administrador a ON u.id_usuari = a.id_usuari
+                 WHERE u.nickusuari = '${info.nickusuari}'
+                   AND u.contrasenya = '${info.contrasenya}'`;
 
   const result = await read(query);
   
   if (result && result.data && result.data.length > 0) {
+    const usuario = result.data[0];
+    localStorage.setItem("nickusuari", usuario.nickusuari);
+    localStorage.setItem("id_usuari", usuario.id_usuari);
+
     window.location.href = "http://localhost/ProyectoLLMQ/SopaLetras/HTML/Administrador/consulta_usuarios.html";
   } else {
     alert("No existe el administrador o las credenciales son incorrectas");
   }
-};
+}
+
 /* Consultar usuario */
 
 document.addEventListener("DOMContentLoaded", async () => {
