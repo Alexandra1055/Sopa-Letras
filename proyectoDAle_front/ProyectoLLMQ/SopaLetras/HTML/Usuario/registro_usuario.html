@@ -19,6 +19,7 @@
 <body class="user">
     <div class="contenedor_imagen_fondo">
         <header>
+           
             <div class="menu_nav">
                 <div class="menu_header">
                     <div class="logo">
@@ -38,13 +39,13 @@
                                     <li class="sublista"><a href="./solicitud_admin.html">Solicitud Admin</a></li>
                                 </ul>
                             </li>
-                            <li class="lista"><a href="./juego.html">Juego</a>
+                            <li class="lista" id="menu-juego" style="display: none;"><a href="./juego.html">Juego</a>
                                 <ul>
                                     <li class="sublista"><a href="./consultar_puntuacion.html">Mi puntuación</a></li>
                                 </ul>
                             </li>
                             <li class="lista"><a href="./ayuda_usuario.html">Ayuda</a></li>
-                            <li class="lista"><a href="./otro_contenido.html">Otros</a>
+                            <li class="lista" id="menu-usuario"><a href="./otro_contenido.html">Otros</a>
                                 <ul>
                                     <li class="sublista"><a href="./contacto.html">Contacto</a></li>
                                     <li class="sublista"><a href="./mapa.html">Mapa</a></li>
@@ -55,23 +56,15 @@
                         </ul>
                     </div>
                     <div class="overlay"></div>
-                    <script>
-                        function w3_open() {
-                            document.getElementById("mySidebar").style.display = "block";
-                        }
-                        function w3_close() {
-                            document.getElementById("mySidebar").style.display = "none";
-                        }
-                    </script>
 
                 </div>
-                <div id="logout">
+                <div id="logout" style="display: none;">
                     <div>
                         <a href="../Administrador/admin_wordSearch.html">Área Privada</a>
                     </div>
                     <div>
-                        <button>
-                            <a href="wordSearch.html">Logout <img src="../Multimedia/Imagenes/logout.png" alt="Logout"
+                        <button id="logoutBoton">
+                            <a href="wordSearch.html" >Logout <img src="../Multimedia/Imagenes/logout.png" alt="Logout"
                                     width="15" height="15"></a>
                         </button>
                     </div>
@@ -166,6 +159,7 @@
 
     </div>
 </body>
-<script src="../JS/crud.js"></script>
+<script src="../JS/CRUD.js"></script>
 <script src="../JS/crud-usuario.js"></script>
+<script src="../JS/accesibilidad.js"></script>
 </html>

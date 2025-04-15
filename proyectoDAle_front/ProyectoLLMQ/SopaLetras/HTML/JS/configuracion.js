@@ -82,14 +82,10 @@ async function confirmarPreferencias() {
     }
   }
 
-  document.addEventListener("DOMContentLoaded", function(){
-    const botoConfirmar = document.getElementById("confirmar");
-    if (botoConfirmar) {
-        botoConfirmar.addEventListener("click", async (e) => {
-            e.preventDefault();
-            await confirmarPreferencias();
-        });
-    }
+  botoConfirmar.addEventListener("click", async (e) => {
+    e.preventDefault();
+    console.log("Confirmar preferencias");
+    await confirmarPreferencias();
 });
 
 //cargar colores guardados
@@ -97,7 +93,7 @@ document.addEventListener("DOMContentLoaded", async () => {
    await cargarColores();
    });
   
-  async function cargarColores(colorSelect) {
+  async function cargarColores() {
     const id_usuari = localStorage.getItem("id_usuari");
     if (!id_usuari) {
       console.error("Usuario no autenticado");
@@ -139,9 +135,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     daltonicCheckbox.addEventListener("change", () => {
-        const activado = daltonicCheckbox.checked;
-        localStorage.setItem("modo_daltonico", activado);
-        document.body.classList.toggle("daltonic-mode", activado);
-    });
+      console.log("Modo daltónico cambiado:", daltonicCheckbox.checked);
+      const activado = daltonicCheckbox.checked;
+      localStorage.setItem("modo_daltonico", activado);
+      document.body.classList.toggle("daltonic-mode", activado);
+  });
 });
 

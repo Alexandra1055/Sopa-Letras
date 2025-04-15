@@ -63,12 +63,11 @@ async function iniciarSesion() {
 
   const result = await read(query);
 
-  if (result && result.data && result.data.length > 0) {
+  if (result.data.length > 0) {
     const usuario = result.data[0];
     localStorage.setItem("id_usuari", usuario.id_usuari);
     localStorage.setItem("nickusuari", usuario.nickusuari);
-
-    window.location.href = "http://localhost/ProyectoLLMQ/SopaLetras/HTML/Usuario/juego.html";
+    window.location.href = "http://localhost/ProyectoLLMQ/SopaLetras/HTML/Usuario/wordSearch.html";
   } else {
     alert("No existe el usuario o las credenciales son incorrectas");
   }
@@ -93,12 +92,12 @@ async function iniciarSesionAdmin() {
 
   const result = await read(query);
   
-  if (result && result.data && result.data.length > 0) {
+  if (result.data.length > 0) {
     const usuario = result.data[0];
     localStorage.setItem("nickusuari", usuario.nickusuari);
     localStorage.setItem("id_usuari", usuario.id_usuari);
 
-    window.location.href = "http://localhost/ProyectoLLMQ/SopaLetras/HTML/Administrador/consulta_usuarios.html";
+    window.location.href = "http://localhost/ProyectoLLMQ/SopaLetras/HTML/Usuario/wordSearch.html"; 
   } else {
     alert("No existe el administrador o las credenciales son incorrectas");
   }
@@ -116,7 +115,7 @@ async function cargarListaUsuarios() {
     const result = await read(query);
 
     
-    if (result && result.data && result.data.length > 0) {
+    if (result.data.length > 0) {
       const lista = document.getElementById("llista-usuaris");
       lista.innerHTML = "";
 
@@ -149,7 +148,7 @@ async function cargarUsuarios(usuariosSelect) {
     const query = "SELECT id_usuari, nickusuari FROM Usuari";
     const result = await read(query);
 
-    if (result && result.data && result.data.length > 0) {
+    if (result.data.length > 0) {
       usuariosSelect.innerHTML = "";
       for (let i = 0; i < result.data.length; i++) {
         const usuario = result.data[i];

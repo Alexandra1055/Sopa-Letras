@@ -20,80 +20,70 @@
         <div class="wave"></div>
       </div>
     <div class="contenedor_imagen_fondo">
-        <header>
-
-
-            <div class="menu_nav">
-                <div class="menu_header">
-                    <div class="logo">
-                        <a href="./wordSearch.html">
-                            <img src="../Multimedia/Imagenes/logo2.PNG" alt="Logo" height="80" width="80">
-                        </a>
-                    </div>
-                    <div class="sidebar">
-                        <a href="#mySidebar" class="sidebar-abrir-boton">☰</a>
-                    </div>
-                    <div class="sidebar-nav" id="mySidebar">
-                        <a href="#" class="sidebar-cerrar-boton">&times;</a>
-                        <ul>
-                            <li class="lista"><a href="./wordSearch.html">Inicio</a>
-                                <ul>
-                                    <li class="sublista"><a href="./registro_usuario.html">Registrarse</a></li>
-                                    <li class="sublista"><a href="./solicitud_admin.html">Solicitud Admin</a></li>
-                                </ul>
-                            </li>
-                            <li class="lista"><a href="./juego.html">Juego</a>
-                                <ul>
-                                    <li class="sublista"><a href="./consultar_puntuacion.html">Mi puntuación</a></li>
-                                </ul>
-                            </li>
-                            <li class="lista"><a href="./ayuda_usuario.html">Ayuda</a></li>
-                            <li class="lista"><a href="./otro_contenido.html">Otros</a>
-                                <ul>
-                                    <li class="sublista"><a href="./contacto.html">Contacto</a></li>
-                                    <li class="sublista"><a href="./mapa.html">Mapa</a></li>
-                                    <li class="sublista"><a href="./configuracion.html">Configuración</a></li>
-                                    <li class="sublista"><a href="./noticias.html">Noticias web</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="overlay"></div>
-                    <script>
-                        function w3_open() {
-                            document.getElementById("mySidebar").style.display = "block";
-                        }
-                        function w3_close() {
-                            document.getElementById("mySidebar").style.display = "none";
-                        }
-                    </script>
-
+        
+        <div class="menu_nav">
+            <div class="menu_header">
+                <div class="logo">
+                    <a href="./wordSearch.html">
+                        <img src="../Multimedia/Imagenes/logo2.PNG" alt="Logo" height="80" width="80">
+                    </a>
                 </div>
-                <div id="logout">
-                    <div>
-                        <a href="../Administrador/admin_wordSearch.html">Área Privada</a>
-                    </div>
-                    <div>
-                        <button>
-                            <a href="wordSearch.html">Logout <img src="../Multimedia/Imagenes/logout.png" alt="Logout"
-                                    width="15" height="15"></a>
-                        </button>
-                    </div>
+                <div class="sidebar">
+                    <a href="#mySidebar" class="sidebar-abrir-boton">☰</a>
                 </div>
+                <div class="sidebar-nav" id="mySidebar">
+                    <a href="#" class="sidebar-cerrar-boton">&times;</a>
+                    <ul>
+                        <li class="lista"><a href="./wordSearch.html">Inicio</a>
+                            <ul>
+                                <li class="sublista"><a href="./registro_usuario.html">Registrarse</a></li>
+                                <li class="sublista"><a href="./solicitud_admin.html">Solicitud Admin</a></li>
+                            </ul>
+                        </li>
+                        <li class="lista" id="menu-juego" style="display: none;"><a href="./juego.html">Juego</a>
+                            <ul>
+                                <li class="sublista"><a href="./consultar_puntuacion.html">Mi puntuación</a></li>
+                            </ul>
+                        </li>
+                        <li class="lista"><a href="./ayuda_usuario.html">Ayuda</a></li>
+                        <li class="lista" id="menu-usuario"><a href="./otro_contenido.html">Otros</a>
+                            <ul>
+                                <li class="sublista"><a href="./contacto.html">Contacto</a></li>
+                                <li class="sublista"><a href="./mapa.html">Mapa</a></li>
+                                <li class="sublista"><a href="./configuracion.html">Configuración</a></li>
+                                <li class="sublista"><a href="./noticias.html">Noticias web</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="overlay"></div>
 
-                <aside id="aside-menu">
-                    <img src="../Multimedia/Imagenes/ranking.png.png" alt="" width="100" height="100">
-                    <div>
-                        <h5>Ranking de Usuarios Registrados:</h5>
-                        <ul>
-                            <li><a href="./RankingUsuarios/primerUsuario.html"> Primero</a></li>
-                            <li><a href="./RankingUsuarios/segundoUsuario.html"> Segundo</a></li>
-                            <li><a href="./RankingUsuarios/tercerUsuario.html"> Tercero</a></li>
-                        </ul>
-                    </div>
-
-                </aside>
             </div>
+            <div id="logout" style="display: none;">
+                <div>
+                    <a href="../Administrador/admin_wordSearch.html">Área Privada</a>
+                </div>
+                <div>
+                    <button id="logoutBoton">
+                        <a href="wordSearch.html" >Logout <img src="../Multimedia/Imagenes/logout.png" alt="Logout"
+                                width="15" height="15"></a>
+                    </button>
+                </div>
+            </div>
+
+            <aside id="aside-menu">
+                <img src="../Multimedia/Imagenes/ranking.png.png" alt="" width="100" height="100">
+                <div>
+                    <h5>Ranking de Usuarios Registrados:</h5>
+                    <ul>
+                        <li><a href="./RankingUsuarios/primerUsuario.html"> Primero</a></li>
+                        <li><a href="./RankingUsuarios/segundoUsuario.html"> Segundo</a></li>
+                        <li><a href="./RankingUsuarios/tercerUsuario.html"> Tercero</a></li>
+                    </ul>
+                </div>
+
+            </aside>
+        </div>
         </header>
         <main>
             <div class="contenido-mapa">
@@ -125,6 +115,9 @@
         </footer>
 
     </div>
+    <script src="../JS/CRUD.js"></script>
+    <script src="../JS/crud-usuario.js"></script>
+    <script src="../JS/accesibilidad.js"></script>
 </body>
 
 </html>
