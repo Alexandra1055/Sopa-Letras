@@ -104,11 +104,12 @@ async function iniciarSesionAdmin() {
 }
 
 /* Consultar usuario */
-
+const LlistaUsuaris = document.querySelector("#Cont_LlistaU")
+if (LlistaUsuaris){
 document.addEventListener("DOMContentLoaded", async () => {
   await cargarListaUsuarios();
 });
-
+}
 async function cargarListaUsuarios() {
   try {
     const query = "SELECT nickusuari, contrasenya FROM Usuari";
