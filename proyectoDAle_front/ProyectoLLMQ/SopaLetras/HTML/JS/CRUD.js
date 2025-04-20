@@ -29,3 +29,4 @@ async function ejecutarQuery(query, mensajeExito, mensajeError) {
       alert(mensajeError || "Error en la operación");
     }
   }
+     
