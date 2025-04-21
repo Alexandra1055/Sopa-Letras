@@ -74,48 +74,79 @@ async function iniciarSesion() {
 }
 
 /* Iniciar sesion admin */
-const botoLoginAdmin = document.querySelector("#loginBotonAdmin");
-if (botoLoginAdmin) {
-  botoLoginAdmin.addEventListener("click", (event) => {
+const btnAdmin = document.querySelector("#loginBotonAdmin");
+if (btnAdmin) {
+  btnAdmin.addEventListener("click", async () => {
     event.preventDefault();
     iniciarSesionAdmin();
   });
 }
 
-async function iniciarSesionAdmin() {
-  const info = login();
-  const query = `SELECT a.id_admin, u.id_usuari, u.nickusuari
-                 FROM Usuari u
-                 INNER JOIN Administrador a ON u.id_usuari = a.id_usuari
-                 WHERE u.nickusuari = '${info.nickusuari}'
-                   AND u.contrasenya = '${info.contrasenya}'`;
+function loginAdmin() {
+  const nickusuari = document.querySelector("#nick").value.trim();
+  const contrasenya = document.querySelector("#contrasena").value.trim();
 
-  const result = await read(query);
-  
-  if (result.data.length > 0) {
-    const usuario = result.data[0];
-    localStorage.setItem("nickusuari", usuario.nickusuari);
-    localStorage.setItem("id_usuari", usuario.id_usuari);
-
-    window.location.href = "http://localhost/ProyectoLLMQ/SopaLetras/HTML/Usuario/wordSearch.html"; 
-  } else {
-    alert("No existe el administrador o las credenciales son incorrectas");
-  }
+  return { nickusuari, contrasenya };
 }
 
+async function iniciarSesionAdmin() {
+  const info = loginAdmin();
+  const query = `
+      SELECT a.id_admin, u.id_usuari, u.nickusuari
+      FROM Usuari u
+      JOIN Administrador a ON u.id_usuari = a.id_usuari
+      WHERE u.nickusuari = '${info.nickusuari}'
+        AND u.contrasenya = '${info.contrasenya}'
+    `;
+
+  try {
+    const res = await read(query);
+    console.log("Respuesta del servidor:", res)
+    if (res?.data?.length > 0) {
+      const adm = res.data[0];
+      localStorage.setItem("id_usuari", adm.id_usuari);
+      localStorage.setItem("nickusuari", adm.nickusuari);
+      localStorage.setItem("id_admin", adm.id_admin);
+      if (res.data.length > 0) {
+        console.log("Login ADMIN ok, redirigiendo a consulta_sopas.html");
+        window.location.href = "http://localhost/ProyectoLLMQ/SopaLetras/HTML/Administrador/consulta_sopas.html";
+      }
+    } else {
+      alert("No existe el administrador o las credenciales son incorrectas");
+    }
+  } catch (err) {
+    console.error("Error al consultar admin:", err);
+    alert("Error al conectar con el servidor");
+  }
+}
+/* Mostrar admin logueado en todas las páginas sin tocar HTML */
+document.addEventListener('DOMContentLoaded', () => {
+  const nick  = localStorage.getItem('nickusuari');
+  const admin = localStorage.getItem('id_admin');
+  if (!nick || !admin) return;
+
+  const logoutDiv = document.querySelector('#logout');
+  if (logoutDiv) {
+    const span = document.createElement('span');
+    span.textContent = `👑 ${nick}`;
+    span.style.marginRight = '1em';
+    span.style.fontWeight = 'bold';
+    logoutDiv.insertBefore(span, logoutDiv.firstChild);
+  }
+});
 /* Consultar usuario */
 const LlistaUsuaris = document.querySelector("#Cont_LlistaU")
-if (LlistaUsuaris){
-document.addEventListener("DOMContentLoaded", async () => {
-  await cargarListaUsuarios();
-});
+if (LlistaUsuaris) {
+  document.addEventListener("DOMContentLoaded", async () => {
+    await cargarListaUsuarios();
+  });
 }
 async function cargarListaUsuarios() {
   try {
     const query = "SELECT nickusuari, contrasenya FROM Usuari";
     const result = await read(query);
 
-    
+
     if (result.data.length > 0) {
       const lista = document.getElementById("llista-usuaris");
       lista.innerHTML = "";

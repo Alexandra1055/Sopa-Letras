@@ -75,26 +75,17 @@
         <div class="alta-sopa-contenido">
             <div class="formulario">
                 <div class="formulario-alta-sopa">
-                    <form action="procesar_altaSopa.php" method="post" target="_blank" autocomplete="on">
+                    <form id="frm-palabras" autocomplete="on">
                         <fieldset>
-                            <legend>Crear nueva sopa de letras</legend>
-                            <h4>Selecciona nivel de dificultad:</h4>
-                            <div class="niveles">
-                                <label>
-                                    <input type="radio" name="dificultat" value="facil" checked>
-                                    Fácil
-                                </label>
-                                <label>
-                                    <input type="radio" name="dificultat" value="intermedio">
-                                    Intermedio
-                                </label>
-                                <label>
-                                    <input type="radio" name="dificultat" value="dificil">
-                                    Difícil
-                                </label>
-                            </div>
-                            <h4>Introduce 10 palabras:</h4>
-                            <div class="palabras-alta-sopa">
+                          <legend>Crear nueva sopa de letras</legend>
+                          <h4>Selecciona nivel de dificultad:</h4>
+                          <div class="niveles">
+                            <label><input type="radio" name="dificultat" value="facil" checked> Fácil</label>
+                            <label><input type="radio" name="dificultat" value="intermedio"> Intermedio</label>
+                            <label><input type="radio" name="dificultat" value="dificil"> Difícil</label>
+                          </div>
+                          <h4>Introduce 10 palabras:</h4>
+                          <div class="palabras-alta-sopa">
                                 <div class="campo">
                                     <label for="palabra1">Palabra 1:</label>
                                     <input type="text" id="palabra1" name="palabra1" required maxlength="10">
@@ -275,12 +266,11 @@
                 </div>
 
             <div class="botones">
-                <button type="submit">Guardar</button>
-                <button type="reset">Resetear</button>
-                <button type="button">Autocompletar</button>
+                <button id="btn-posicionar" type="button">Posicionar palabras</button>
+                <button id="btn-guardar" type="submit">Guardar</button>
+                <button id="btn-reset" type="reset">Resetear</button>
+                <button id="btn-autocompletar" type="button">Autocompletar</button>            
             </div>
-
-        </div>
         </div>
     </main>
     <footer>
@@ -301,6 +291,9 @@
     </footer>
 
     </div>
+    <script src="../JS/CRUD.js"></script>
+    <script src="../JS/crud-usuario.js"></script>
+    <script src="../JS/crud-sopas.js"></script>
 </body>
 
 </html>
