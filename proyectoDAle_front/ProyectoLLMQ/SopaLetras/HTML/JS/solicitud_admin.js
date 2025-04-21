@@ -31,12 +31,16 @@ function obtenerDatosSolicitud() {
 
 async function verificarUsuario(nickusuari) {
     try {
-        const query = `SELECT id_usuari FROM Usuari WHERE nickusuari = '${nickusuari}'`;
+        const query = `SELECT id_usuari, nickusuari FROM Usuari WHERE nickusuari = '${nickusuari}'`;
         const result = await read(query);
+        console.log("Resultado de verificarUsuario:", result); // Depuración
         if (result && result.data && result.data.length > 0) {
+            console.log("Usuario encontrado:", result.data[0]);
             return result.data[0].id_usuari;
+        } else {
+            console.log("No se encontró el usuario con nickname:", nickusuari);
+            return null;
         }
-        return null;
     } catch (error) {
         console.error("Error al verificar el usuario:", error);
         return null;
@@ -53,6 +57,7 @@ async function insertarSolicitudAdmin(id_usuari, datos) {
 async function procesarSolicitudAdmin() {
     try {
         const datos = obtenerDatosSolicitud();
+        console.log("Datos del formulario:", datos); // Depuración
         const id_usuari = await verificarUsuario(datos.nickusuari);
 
         if (!id_usuari) {
