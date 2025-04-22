@@ -154,7 +154,17 @@ function reiniciarTablero() {
 
 async function guardarSopa(e) {
   e.preventDefault();
-  await guardarPalabras();
+  if (posicionesPalabras.length === 0) {
+    return alert("Primero pulsa 'Guardar palabras' y luego posiciona tus palabras.");
+  }
+  const faltan = posicionesPalabras.filter(p => !p.inicio || !p.fin);
+  if (faltan.length) {
+    return alert(
+      `Te faltan por posicionar ${faltan.length} palabra(s):\n` +
+      faltan.map(p => p.palabra).join(", ")
+    );
+  }
+
   const admin = Number(localStorage.getItem("id_admin"));
   if (!admin) return alert("Sin sesión de administrador");
 
@@ -182,19 +192,15 @@ async function guardarSopa(e) {
   `);
 
   // Inserto posiciones de palabras
-  const filasPalabras = posicionesPalabras
-    .filter(p => p.id_paraula && p.inicio && p.fin)
-    .map(p =>
-      `(${id_sopa},${p.id_paraula},${p.inicio.x},${p.inicio.y},${p.fin.x},${p.fin.y})`
-    );
-  if (filasPalabras.length) {
-    const sqlPalabras = `
+  const filasPalabras = posicionesPalabras.map(p =>
+    `(${id_sopa},${p.id_paraula},${p.inicio.x},${p.inicio.y},${p.fin.x},${p.fin.y})`
+  );
+  const sqlPalabras = `
     INSERT INTO Sopa_Lletres_Paraula
       (id_sopa,id_paraula,coordenadaX_start,coordenadaY_start,coordenadaX_end,coordenadaY_end)
     VALUES ${filasPalabras.join(",")};
   `;
-    await createSilent(sqlPalabras);
-  }
+  await createSilent(sqlPalabras);
   // Inserto letras
   const mapaLetras = {};
   document.querySelectorAll(".tablero-sopa .b-tsopa").forEach(c => {

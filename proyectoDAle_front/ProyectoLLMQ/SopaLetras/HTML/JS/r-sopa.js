@@ -91,3 +91,104 @@ async function cargarLetras(idSopa) {
     alert("No se pudieron cargar las letras.");
   }
 }
+
+/**
+ * 5) Carga y pinta el estado de la sopa y añade el botón de toggle
+ */
+async function cargarEstado(idSopa) {
+    try {
+      // 5.1) Leer estado y nivel
+      const res = await read(`
+        SELECT nom, estat, id_nivell 
+        FROM Sopa_Lletres 
+        WHERE id_sopa = ${idSopa};
+      `);
+      const { nom, estat, id_nivell: nivel } = res.data[0];
+  
+      // 5.2) Construir UI
+      // buscamos (o creamos) un contenedor en .contadores-juego
+      let cont = document.querySelector('.contadores-juego .estado-sopa');
+      if (!cont) {
+        cont = document.createElement('div');
+        cont.className = 'estado-sopa';
+        document.querySelector('.contadores-juego').appendChild(cont);
+      }
+      cont.innerHTML = `
+        <p><strong>Estado:</strong> ${estat === 'si' ? 'ACTIVA' : 'INACTIVA'}</p>
+        <button id="btn-toggle-estado">
+          ${estat === 'si' ? 'Desactivar' : 'Activar'}
+        </button>
+      `;
+  
+      // 5.3) Listener para el botón
+      document
+        .getElementById('btn-toggle-estado')
+        .addEventListener('click', () => onToggleEstado(idSopa, nivel, nom, estat));
+    } catch (e) {
+      console.error('Error cargando estado de la sopa:', e);
+      alert('No se pudo leer el estado de la sopa.');
+    }
+  }
+  
+  /**
+   * 6) Al pulsar activar/desactivar
+   */
+  async function onToggleEstado(idSopa, nivel, nombreSopa, estadoActual) {
+    try {
+      if (estadoActual === 'si') {
+        // Desactivar sin más
+        await createSilent(`
+          UPDATE Sopa_Lletres
+          SET estat = 'no'
+          WHERE id_sopa = ${idSopa};
+        `);
+        alert(`Sopa "${nombreSopa}" desactivada.`);
+      } else {
+        // Antes de activar, verificar que no exista otra activa en el mismo nivel
+        const otras = await read(`
+          SELECT id_sopa, nom 
+          FROM Sopa_Lletres 
+          WHERE id_nivell = ${nivel} AND estat = 'si';
+        `);
+        if (otras.data.length) {
+          const { nom: otraNom } = otras.data[0];
+          return alert(
+            `Actualmente tienes la sopa "${otraNom}" activa en este nivel.\n` +
+            `Desactívala antes de activar otra.`
+          );
+        }
+        // Activar
+        await createSilent(`
+          UPDATE Sopa_Lletres
+          SET estat = 'si'
+          WHERE id_sopa = ${idSopa};
+        `);
+        alert(`Sopa "${nombreSopa}" activada.`);
+      }
+  
+      // 6.3) Recargar estado UI
+      await cargarEstado(idSopa);
+  
+    } catch (e) {
+      console.error('Error cambiando estado de la sopa:', e);
+      alert('No se pudo cambiar el estado de la sopa.');
+    }
+  }
+  
+  // 7) Inyectamos la carga de estado en el flujo de consulta
+  // Modifica tu onConsultarSopa para que, además de cargar palabras y letras,
+  // llame a cargarEstado:
+  
+  async function onConsultarSopa(evt) {
+    evt.preventDefault();
+    const idSopa = document.getElementById("tipoSopa").value;
+    if (!idSopa) return alert("Selecciona una sopa.");
+  
+    await Promise.all([
+      cargarPalabras(idSopa),
+      cargarLetras(idSopa)
+    ]);
+  
+    // <-- AÑADE ESTA LÍNEA
+    await cargarEstado(idSopa);
+  }

@@ -96,12 +96,14 @@ async function confirmarPreferencias() {
   }
 }
 
-const botoConfirmar = document.querySelector("#confirmar")
-botoConfirmar.addEventListener("click", async (e) => {
-  e.preventDefault();
-  console.log("Confirmar preferencias");
-  await confirmarPreferencias();
-});
+document.addEventListener("DOMContentLoaded", () => {
+  const botoConfirmar = document.querySelector("#confirmar");
+  if (botoConfirmar) {
+    botoConfirmar.addEventListener("click", async e => {
+      e.preventDefault();
+      await confirmarPreferencias();
+    });
+  }
 
 //cargar colores guardados
 document.addEventListener("DOMContentLoaded", async () => {
@@ -170,8 +172,8 @@ async function updateColores() {
 /* Sonido */
 
 /* Daltonico */
-document.addEventListener("DOMContentLoaded", () => {
-  const daltonicCheckbox = document.querySelector(".modo input[type='checkbox']");
+const daltonicCheckbox = document.querySelector(".modo input[type='checkbox']");
+if (daltonicCheckbox) {
   const daltonic = localStorage.getItem("modo_daltonico");
 
   if (daltonic === "true") {
@@ -185,5 +187,5 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("modo_daltonico", activado);
     document.body.classList.toggle("daltonic-mode", activado);
   });
+}
 });
-
