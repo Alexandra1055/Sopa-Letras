@@ -18,7 +18,10 @@ async function update(query) {
 async function updateSilent(query) {
   return await ejecutarQuery(query, null, "Error al actualizar el registro");
 }
-
+/* Delete */
+async function remove(query) {
+  return await ejecutarQuery(query, "Se ha eliminado con exito", "Error al eliminar el registro");
+}
 /* Ejecutar la Query */
 async function ejecutarQuery(query, mensajeExito, mensajeError) {
     try {
