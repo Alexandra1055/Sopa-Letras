@@ -11,7 +11,7 @@ async function cargarOpcionesSopas() {
   try {
     const result = await read("SELECT id_sopa, nom FROM Sopa_Lletres");
     const select = document.getElementById("tipoSopa");
-    select.innerHTML = "";  // limpia
+    select.innerHTML = ""; 
     result.data.forEach(row => {
       const opt = document.createElement("option");
       opt.value = row.id_sopa;
@@ -166,7 +166,6 @@ async function cargarEstado(idSopa) {
         alert(`Sopa "${nombreSopa}" activada.`);
       }
   
-      // 6.3) Recargar estado UI
       await cargarEstado(idSopa);
   
     } catch (e) {
@@ -174,10 +173,6 @@ async function cargarEstado(idSopa) {
       alert('No se pudo cambiar el estado de la sopa.');
     }
   }
-  
-  // 7) Inyectamos la carga de estado en el flujo de consulta
-  // Modifica tu onConsultarSopa para que, además de cargar palabras y letras,
-  // llame a cargarEstado:
   
   async function onConsultarSopa(evt) {
     evt.preventDefault();
@@ -189,6 +184,5 @@ async function cargarEstado(idSopa) {
       cargarLetras(idSopa)
     ]);
   
-    // <-- AÑADE ESTA LÍNEA
     await cargarEstado(idSopa);
   }
