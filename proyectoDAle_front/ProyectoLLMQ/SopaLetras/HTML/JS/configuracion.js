@@ -70,6 +70,7 @@ async function insertarUsuarioColors() {
     await create(query);
   }
 }
+
 async function confirmarPreferencias() {
   guardaColors();
   recuperaColors();
@@ -96,7 +97,7 @@ async function confirmarPreferencias() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const botoConfirmar = document.querySelector("#confirmar");
   if (botoConfirmar) {
     botoConfirmar.addEventListener("click", async e => {
@@ -104,40 +105,48 @@ document.addEventListener("DOMContentLoaded", () => {
       await confirmarPreferencias();
     });
   }
+ 
+ //cargar colores guardados
+ await cargarColores()
 
-//cargar colores guardados
-document.addEventListener("DOMContentLoaded", async () => {
-  await cargarColores();
-});
-
-async function cargarColores() {
+ async function cargarColores() {
   const id_usuari = localStorage.getItem("id_usuari");
+  console.log("cargarColores — id_usuari desde localStorage =", id_usuari);
+
   if (!id_usuari) {
     console.error("Usuario no autenticado");
     return;
   }
-  try {
-    const query = `SELECT id_color, valor FROM Usuari_Color WHERE id_usuari = '${id_usuari}'`;
-    const result = await read(query);
 
-    if (result.data.length > 0) {
-      result.data.forEach((color) => {
-        if (color.id_color === 1) {
-          document.querySelector("#colorCorrecto").value = color.valor;
-        } else if (color.id_color === 2) {
-          document.querySelector("#colorIncorrecto").value = color.valor;
-        } else if (color.id_color === 3) {
-          document.querySelector("#colorTabla").value = color.valor;
-        }
-      });
-    } else {
-      console.log("No hay colores guardados.");
+  try {
+    const query = `SELECT id_color, valor FROM Usuari_Color WHERE id_usuari='${id_usuari}'`;
+    console.log("cargarColores — consulta SQL =", query);
+
+    const result = await read(query);
+    console.log("cargarColores — resultado read() =", result);
+
+    if (!result.data || result.data.length === 0) {
+      console.warn("No hay colores guardados para este usuario.");
+      return;
     }
+
+    result.data.forEach(({ id_color, valor }) => {
+      console.log("aplicar color", id_color, valor);
+      if (id_color === 1) {
+        document.querySelector("#colorCorrecto").value = valor;
+      } else if (id_color === 2) {
+        document.querySelector("#colorIncorrecto").value = valor;
+      } else if (id_color === 3) {
+        document.querySelector("#colorTabla").value = valor;
+      }
+    });
   } catch (error) {
     console.error("Error al cargar los colores:", error);
     alert("Error al cargar los colores del usuario.");
   }
 }
+
+
 /* Update colores */
 async function updateColores() {
   const id_usuari = localStorage.getItem("id_usuari");
@@ -153,39 +162,37 @@ async function updateColores() {
   ];
 
   for (const color of colores) {
-
     try {
       const query = `
-        UPDATE Usuari_Color 
-        SET valor = '${color.valor}'
-        WHERE id_usuari = '${id_usuari}' AND id_color = '${color.id_color}';
-      `;
-      await update(query); 
-    } catch (error) {
-      console.error(`Error al actualizar los colores ${color.id_color}:`, error);
-      alert("Error al actualizar los colores del usuario.");
-    }
+      UPDATE Usuari_Color 
+      SET valor = '${color.valor}'
+      WHERE id_usuari = '${id_usuari}' AND id_color = '${color.id_color}';
+    `;
+    await update(query); 
+  } catch (error) {
+    console.error(`Error al actualizar los colores ${color.id_color}:`, error);
+    alert("Error al actualizar los colores del usuario.");
   }
+}
 }
 
 
 /* Sonido */
 
 /* Daltonico */
-const daltonicCheckbox = document.querySelector(".modo input[type='checkbox']");
-if (daltonicCheckbox) {
+document.addEventListener("DOMContentLoaded", () => {
+  const daltonicCheckbox = document.querySelector(".modo input[type='checkbox']");
   const daltonic = localStorage.getItem("modo_daltonico");
-
   if (daltonic === "true") {
     document.body.classList.add("daltonic-mode");
     daltonicCheckbox.checked = true;
   }
-
   daltonicCheckbox.addEventListener("change", () => {
     console.log("Modo daltónico cambiado:", daltonicCheckbox.checked);
     const activado = daltonicCheckbox.checked;
     localStorage.setItem("modo_daltonico", activado);
     document.body.classList.toggle("daltonic-mode", activado);
   });
-}
+});
+
 });
