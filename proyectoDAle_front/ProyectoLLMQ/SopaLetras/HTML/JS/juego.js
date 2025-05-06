@@ -7,6 +7,7 @@ let casillasCorrectas = new Set();
 let casillasSeleccionadas = new Set();
 let temporizador = null;
 let tiempoInicio = 0;
+let juegoFinalizado = false;
 let pesNivel = 1;
 let colorCorrecto = "#02fc18";
 let colorIncorrecto = "#fc2b02"; 
@@ -236,6 +237,11 @@ function verificarPalabras() {
 
 // Función para finalizar el juego
 async function finalizarJuego() {
+  if (juegoFinalizado) return;
+  juegoFinalizado = true;
+  const btnFin = document.querySelector("#fin button");
+  btnFin.disabled = true;
+
   clearInterval(temporizador);
   document.querySelectorAll(".juego-sopa .b-sopa").forEach(boton => boton.disabled = true);
 
@@ -260,18 +266,58 @@ async function finalizarJuego() {
             .value = "0 pts";
   }
 
-  // Guardar en BD si ha sido juegoCompleto
-  const idU = localStorage.getItem("id_usuari");
-  const idS = document.getElementById("tipoSopa").value;
-  if (juegoCompleto && idU && idS) {
-    try {
-      await createSilent(`
-        INSERT INTO Sopa_Lletres_Usuari (id_usuari,id_sopa,punts)
-        VALUES(${idU},${idS},${puntos})
-        ON DUPLICATE KEY UPDATE punts = GREATEST(punts, VALUES(punts));
-      `);
-    } catch (e) {
-      console.error("Error guardando puntos:", e);
-    }
+// Guardar en BD
+const idUsuario = localStorage.getItem("id_usuari");
+const idSopa = document.getElementById("tipoSopa").value;
+if (!idUsuario || !idSopa) return;
+
+let existe = false;
+let puntosViejos = 0;
+try {
+  const res = await read(`
+    SELECT punts
+      FROM Sopa_Lletres_Usuari
+     WHERE id_usuari = ${idUsuario}
+       AND id_sopa   = ${idSopa};
+  `);
+  if (res.data.length) {
+    existe = true;
+    puntosViejos = Number(res.data[0].punts);
   }
+} catch (e) {
+  console.error("Error leyendo puntos viejos:", e);
 }
+
+if (!existe) {
+  const sql = `
+    INSERT INTO Sopa_Lletres_Usuari (id_usuari, id_sopa, punts)
+    VALUES (${idUsuario}, ${idSopa}, ${puntos});
+  `.trim();
+  console.log("INSERT puntos:", sql);
+  try {
+    await createSilent(sql);
+  } catch (e) {
+    console.error("Error INSERT puntos:", e);
+  }
+
+} else if (puntos > puntosViejos) {
+  const sql = `
+    UPDATE Sopa_Lletres_Usuari
+       SET punts = ${puntos}
+     WHERE id_usuari = ${idUsuario}
+       AND id_sopa   = ${idSopa};
+  `.trim();
+  console.log("UPDATE puntos:", sql);
+  try {
+    await createSilent(sql);
+  } catch (e) {
+    console.error("Error UPDATE puntos:", e);
+  }
+
+} else {
+  console.log(
+    `No actualizo: puntos viejos=${puntosViejos} ≥ nuevos=${puntos}`
+  );
+}
+}
+

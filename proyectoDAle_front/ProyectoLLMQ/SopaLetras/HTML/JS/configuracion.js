@@ -6,24 +6,19 @@
 // Variables
 let colorCorrecto;
 let colorIncorrecto;
-let colorTabla;
-
 
 // Funcions
 
 function guardaColors() {
   colorCorrecto = document.querySelector("#colorCorrecto").value;
   colorIncorrecto = document.querySelector("#colorIncorrecto").value;
-  colorTabla = document.querySelector("#colorTabla").value;
 
   localStorage.setItem("colorCorrecto", colorCorrecto);
   localStorage.setItem("colorIncorrecto", colorIncorrecto);
-  localStorage.setItem("colorTabla", colorTabla);
 
   return {
     colorCorrecto,
     colorIncorrecto,
-    colorTabla
   };
 }
 
@@ -39,12 +34,6 @@ function recuperaColors() {
   } else {
     colorIncorrecto = "#fc2b02";
   }
-
-  if (localStorage.getItem("colorTabla") != null) {
-    colorTabla = localStorage.getItem("colorTabla");
-  } else {
-    colorTabla = "#02fc20";
-  }
 }
 
 //Insertar en la tabla color
@@ -59,8 +48,7 @@ async function insertarUsuarioColors() {
 
   const colores = [
     { id_color: 1, valor: colorCorrecto },
-    { id_color: 2, valor: colorIncorrecto },
-    { id_color: 3, valor: colorTabla }
+    { id_color: 2, valor: colorIncorrecto }
   ];
 
   for (const color of colores) {
@@ -136,8 +124,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         document.querySelector("#colorCorrecto").value = valor;
       } else if (id_color === 2) {
         document.querySelector("#colorIncorrecto").value = valor;
-      } else if (id_color === 3) {
-        document.querySelector("#colorTabla").value = valor;
       }
     });
   } catch (error) {
@@ -157,8 +143,7 @@ async function updateColores() {
 
   const colores = [
     { id_color: 1, valor: colorCorrecto },
-    { id_color: 2, valor: colorIncorrecto },
-    { id_color: 3, valor: colorTabla }
+    { id_color: 2, valor: colorIncorrecto }
   ];
 
   for (const color of colores) {
