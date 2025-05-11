@@ -245,3 +245,13 @@ footer div{
   background: var(--admin-secondary);
   color: var(--admin-primary);
 }
+
+body.daltonic-mode {
+  --usuario-primary: var(--daltonic-primary);
+  --usuario-secondary: var(--daltonic-secondary);
+  --usuario-accent: var(--daltonic-accent);
+  --usuario-bg-light: var(--daltonic-bg-light);
+  --usuario-bg-dark: var(--daltonic-bg-dark);
+  --usuario-hover: var(--daltonic-hover);
+  --usuario-hover-text: var(--daltonic-hover-text);
+}

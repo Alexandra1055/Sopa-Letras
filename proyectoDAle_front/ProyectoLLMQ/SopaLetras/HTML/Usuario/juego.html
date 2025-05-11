@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="../CSS/componentes.css">
     <link rel="stylesheet" href="../CSS/responsive.css">
     <link rel="stylesheet" href="../CSS/variables.css">
-    <link rel="stylesheet" href="../CSS/imagen-fondo.css">
     <link rel="stylesheet" href="../CSS/formularios.css">
     <link rel="stylesheet" href="../CSS/juego.css">
     <link rel="icon" type="image/x-icon" href="../Multimedia/Imagenes/favicon.ico">
@@ -22,10 +21,11 @@
     <div class="ondas">
         <div class="wave"></div>
         <div class="wave"></div>
-      </div>
+    </div>
     <div class="gradient"></div>
     <div class="contenedor_imagen_fondo">
         <header>
+
             <div class="menu_nav">
                 <div class="menu_header">
                     <div class="logo">
@@ -45,13 +45,13 @@
                                     <li class="sublista"><a href="./solicitud_admin.html">Solicitud Admin</a></li>
                                 </ul>
                             </li>
-                            <li class="lista"><a href="./juego.html">Juego</a>
+                            <li class="lista" id="menu-juego" style="display: none;"><a href="./juego.html">Juego</a>
                                 <ul>
                                     <li class="sublista"><a href="./consultar_puntuacion.html">Mi puntuación</a></li>
                                 </ul>
                             </li>
                             <li class="lista"><a href="./ayuda_usuario.html">Ayuda</a></li>
-                            <li class="lista"><a href="./otro_contenido.html">Otros</a>
+                            <li class="lista" id="menu-usuario"><a href="./otro_contenido.html">Otros</a>
                                 <ul>
                                     <li class="sublista"><a href="./contacto.html">Contacto</a></li>
                                     <li class="sublista"><a href="./mapa.html">Mapa</a></li>
@@ -62,22 +62,14 @@
                         </ul>
                     </div>
                     <div class="overlay"></div>
-                    <script>
-                        function w3_open() {
-                            document.getElementById("mySidebar").style.display = "block";
-                        }
-                        function w3_close() {
-                            document.getElementById("mySidebar").style.display = "none";
-                        }
-                    </script>
 
                 </div>
-                <div id="logout">
+                <div id="logout" style="display: none;">
                     <div>
                         <a href="../Administrador/admin_wordSearch.html">Área Privada</a>
                     </div>
                     <div>
-                        <button>
+                        <button id="logoutBoton">
                             <a href="wordSearch.html">Logout <img src="../Multimedia/Imagenes/logout.png" alt="Logout"
                                     width="15" height="15"></a>
                         </button>
@@ -107,19 +99,16 @@
             <div class="contenido-pagina-juego">
                 <div class="eleccio-juego">
                     <h3>Sopas de Letras: &#128270;</h3>
-                    <form action="procesar_juego.php" method="post">
-                        <label for="usuarios">Selecciona un nivel:</label>
-                        <select id="usuarios" name="usuarios">
-                            <option value="facil">Facil</option>
-                            <option value="intermedio">Intermedio</option>
-                            <option value="dificil">Dificil</option>
+                    <form id="formJuego">
+                        <label for="tipoSopa">Nivel:</label>
+                        <select id="tipoSopa" name="tipoSopa">
                         </select>
 
                         <button id="jugar" type="submit">Jugar</button>
                     </form>
                 </div>
                 <div class="contadores-juego">
-                    <h2>Sopa de Letras Principiante</h2>
+                    <h2></h2>
                     <div class="info-tiempo-resultado">
                         <label for="tiempo">Tiempo:</label>
                         <input type="text" name="tiempo" id="input-tiempo" disabled>
@@ -130,71 +119,61 @@
                 </div>
                 <div class="listado-palabras">
                     <ul class="columna">
-                        <li>OSO</li>
-                        <li>PANDA</li>
-                        <li>LORO</li>
-                        <li>TIGRE</li>
-                        <li>LEON</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
                     </ul>
                     <ul class="columna">
-                        <li>GATO</li>
-                        <li>PERRO</li>
-                        <li>LOBO</li>
-                        <li>PEZ</li>
-                        <li>MOSCA</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
                     </ul>
                 </div>
                 <div class="juego-sopa">
-                    <button class="b-sopa">O</button><button class="b-sopa">S</button><button
-                        class="b-sopa">O</button><button class="b-sopa">T</button><button
-                        class="b-sopa">G</button><button class="b-sopa">L</button><button
-                        class="b-sopa">O</button><button class="b-sopa">P</button><button
-                        class="b-sopa">M</button><button class="b-sopa">N</button>
-                    <button class="b-sopa">A</button><button class="b-sopa">P</button><button
-                        class="b-sopa">A</button><button class="b-sopa">N</button><button
-                        class="b-sopa">D</button><button class="b-sopa">A</button><button
-                        class="b-sopa">F</button><button class="b-sopa">R</button><button
-                        class="b-sopa">I</button><button class="b-sopa">C</button>
-                    <button class="b-sopa">P</button><button class="b-sopa">U</button><button
-                        class="b-sopa">L</button><button class="b-sopa">O</button><button
-                        class="b-sopa">R</button><button class="b-sopa">O</button><button
-                        class="b-sopa">H</button><button class="b-sopa">B</button><button
-                        class="b-sopa">X</button><button class="b-sopa">T</button>
-                    <button class="b-sopa">L</button><button class="b-sopa">O</button><button
-                        class="b-sopa">B</button><button class="b-sopa">O</button><button
-                        class="b-sopa">E</button><button class="b-sopa">S</button><button
-                        class="b-sopa">T</button><button class="b-sopa">R</button><button
-                        class="b-sopa">S</button><button class="b-sopa">L</button>
-                    <button class="b-sopa">P</button><button class="b-sopa">E</button><button
-                        class="b-sopa">R</button><button class="b-sopa">R</button><button
-                        class="b-sopa">O</button><button class="b-sopa">T</button><button
-                        class="b-sopa">I</button><button class="b-sopa">G</button><button
-                        class="b-sopa">R</button><button class="b-sopa">E</button>
-                    <button class="b-sopa">T</button><button class="b-sopa">I</button><button
-                        class="b-sopa">G</button><button class="b-sopa">R</button><button
-                        class="b-sopa">E</button><button class="b-sopa">F</button><button
-                        class="b-sopa">E</button><button class="b-sopa">K</button><button
-                        class="b-sopa">A</button><button class="b-sopa">E</button>
-                    <button class="b-sopa">M</button><button class="b-sopa">O</button><button
-                        class="b-sopa">S</button><button class="b-sopa">C</button><button
-                        class="b-sopa">A</button><button class="b-sopa">K</button><button
-                        class="b-sopa">W</button><button class="b-sopa">O</button><button
-                        class="b-sopa">R</button><button class="b-sopa">S</button>
-                    <button class="b-sopa">L</button><button class="b-sopa">E</button><button
-                        class="b-sopa">O</button><button class="b-sopa">N</button><button
-                        class="b-sopa">R</button><button class="b-sopa">E</button><button
-                        class="b-sopa">O</button><button class="b-sopa">H</button><button
-                        class="b-sopa">L</button><button class="b-sopa">T</button>
-                    <button class="b-sopa">L</button><button class="b-sopa">G</button><button
-                        class="b-sopa">A</button><button class="b-sopa">T</button><button
-                        class="b-sopa">O</button><button class="b-sopa">P</button><button
-                        class="b-sopa">M</button><button class="b-sopa">A</button><button
-                        class="b-sopa">P</button><button class="b-sopa">D</button>
-                    <button class="b-sopa">F</button><button class="b-sopa">E</button><button
-                        class="b-sopa">S</button><button class="b-sopa">H</button><button
-                        class="b-sopa">Y</button><button class="b-sopa">L</button><button
-                        class="b-sopa">Q</button><button class="b-sopa">E</button><button
-                        class="b-sopa">Z</button><button class="b-sopa">X</button>
+                    <button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button>
+                    <button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button>
+                    <button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button>
+                    <button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button>
+                    <button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button>
+                    <button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button>
+                    <button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button>
+                    <button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button>
+                    <button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button>
+                    <button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button><button class="b-sopa"></button><button
+                        class="b-sopa"></button><button class="b-sopa"></button>
                 </div>
                 <div id="fin">
                     <button type="submit">Finalizar</button>
@@ -222,6 +201,11 @@
         </footer>
 
     </div>
+    <script src="../JS/CRUD.js"></script>
+    <script src="../JS/crud-usuario.js"></script>
+    <script src="../JS/accesibilidad.js"></script>
+    <script src="../JS/juego.js"></script>
+    <script src="../JS/configuracion.js"></script>
 </body>
 
 </html>

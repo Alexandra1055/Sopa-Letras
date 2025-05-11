@@ -1,23 +1,27 @@
-/* Create */
+/* Create con alerta */
 async function create(query) {
-  return await ejecutarQuery(query, "Se ha creado con éxito el registro", "Error al crear el registro");
+  return await ejecutarQuery(query, "Se ha creado con exito el registro", "Error al crear el registro");
 }
-
+/* Create sin alerta */
+async function createSilent(query) {
+  return await ejecutarQuery(query, null, "Error al crear el registro");
+}
 /* Read */
 async function read(query) {
   return await ejecutarQuery(query, null, "Error al leer los datos");
 }
-
-/* Update */
+/* Update con alerta */
 async function update(query) {
-  return await ejecutarQuery(query, "Se ha actualizado con éxito", "Error al actualizar el registro");
+  return await ejecutarQuery(query, "Se ha actualizado con exito", "Error al actualizar el registro");
 }
-
+/* Update sin alerta */
+async function updateSilent(query) {
+  return await ejecutarQuery(query, null, "Error al actualizar el registro");
+}
 /* Delete */
 async function remove(query) {
-  return await ejecutarQuery(query, "Se ha eliminado con éxito", "Error al eliminar el registro");
+  return await ejecutarQuery(query, "Se ha eliminado con exito", "Error al eliminar el registro");
 }
-
 /* Ejecutar la Query */
 async function ejecutarQuery(query, mensajeExito, mensajeError) {
   try {
