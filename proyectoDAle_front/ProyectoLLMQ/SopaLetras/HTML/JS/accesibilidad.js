@@ -1,68 +1,131 @@
 //menu-sidebar
 function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("mySidebar").style.display = "block";
 }
 function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("mySidebar").style.display = "none";
 }
 
-// Modo daltonico
 document.addEventListener("DOMContentLoaded", () => {
-    const daltonic = localStorage.getItem("modo_daltonico");
-    if (daltonic === "true") {
-        document.body.classList.add("daltonic-mode");
-    }
-});
+  initDaltonic();
+  initFontSize();
+  initSound();
+  initSession();
 
-//Logeado + Formulario inicio
-document.addEventListener("DOMContentLoaded", () => {
+  // Modo daltonico
+  function initDaltonic() {
+    const root = document.documentElement;
+    const css = getComputedStyle(root);
+    const checkbox = document.querySelector(".modo input[type='checkbox']");
+
+    const keys = ['primary', 'secondary', 'accent', 'bg-light', 'bg-dark', 'hover', 'hover-text'];
+
+    function apply(enabled) {
+      if (enabled) {
+        keys.forEach(k => {
+          const dal = css.getPropertyValue(`--daltonic-${k}`).trim();
+          if (dal) root.style.setProperty(`--usuario-${k}`, dal);
+        });
+        document.body.classList.add("daltonic-mode");
+      } else {
+        keys.forEach(k => {
+          root.style.removeProperty(`--usuario-${k}`);
+        });
+        document.body.classList.remove("daltonic-mode");
+      }
+    }
+
+    const saved = localStorage.getItem("modo_daltonico") === "true";
+    apply(saved);
+    if (checkbox) checkbox.checked = saved;
+
+    if (checkbox) {
+      checkbox.addEventListener("change", () => {
+        const on = checkbox.checked;
+        localStorage.setItem("modo_daltonico", on);
+        apply(on);
+      });
+    }
+  }
+
+  //Tamaño de letra
+  function initFontSize() {
+    const root = document.documentElement;
+    const slider = document.getElementById("nivelLetras");
+    const base = 100;
+    const step = 5;
+    if (!slider) return;
+
+    const saved = parseInt(localStorage.getItem("nivelLetras") || "0", 10);
+    slider.value = saved;
+    root.style.fontSize = `${base + step * saved}%`;
+
+    slider.addEventListener("input", () => {
+      const v = parseInt(slider.value, 10);
+      localStorage.setItem("nivelLetras", v);
+      root.style.fontSize = `${base + step * v}%`;
+    });
+  }
+
+  //Volumen de audio
+  function initSound() {
+    const audio = document.getElementById("audio");
+    const slider = document.getElementById("nivelSonidoGeneral");
+    if (!audio || !slider) return;
+
+    const saved = parseFloat(localStorage.getItem("volumen") || "0.2");
+    audio.volume = saved;
+    slider.value = Math.round(saved * 10);
+
+    slider.addEventListener("input", () => {
+      const v = slider.value / 10;
+      localStorage.setItem("volumen", v);
+      audio.volume = v;
+    });
+  }
+
+  //Logeado + Formulario inicio, Logout, Bienvenida
+  function initSession() {
     const idUsuari = localStorage.getItem("id_usuari");
-    const formularioLogin = document.getElementById("form-login");
-    const logout = document.getElementById("logout");
+    const formLogin = document.getElementById("form-login");
+    const logoutElem = document.getElementById("logout");
     const menuJuego = document.getElementById("menu-juego");
+    const nick = localStorage.getItem("nickusuari");
+    const bienvenida = document.getElementById("bienvenida");
+    const menuUsuario = document.getElementById("menu-usuario");
 
     if (idUsuari) {
-        
-      if (formularioLogin) formularioLogin.style.display = "none";
-        logout.style.display = "block";
-        menuJuego.style.display = "block";
+      if (formLogin) formLogin.style.display = "none";
+      if (logoutElem) logoutElem.style.display = "block";
+      if (menuJuego) menuJuego.style.display = "block";
     } else {
-        
-      if (formularioLogin) formularioLogin.style.display = "block";
-        logout.style.display = "none";
-        menuJuego.style.display = "none";
+      if (formLogin) formLogin.style.display = "block";
+      if (logoutElem) logoutElem.style.display = "none";
+      if (menuJuego) menuJuego.style.display = "none";
     }
-  });
-  
-  //Logout
-  const botoLogout = document.getElementById("logoutBoton");
-if (botoLogout) {
-  botoLogout.addEventListener("click", () => {
-    localStorage.removeItem("id_usuari");
-    localStorage.removeItem("nickusuari");
-    window.location.href = "http://localhost/ProyectoLLMQ/SopaLetras/HTML/Usuario/wordSearch.html"; 
-  });
-}
-
-//Bienvenida
-document.addEventListener("DOMContentLoaded", () => {
-    const nick = localStorage.getItem("nickusuari");
 
     if (nick) {
-        const bienvenida = document.getElementById("bienvenida");
-        if (bienvenida) {
-            bienvenida.textContent = `Bienvenido, ${nick}!`;
-            bienvenida.style.display = "block";
-            bienvenida.style.fontWeight = "bold";
-            bienvenida.style.marginBottom = "1em";
-            bienvenida.style.textAlign = "center";
-            bienvenida.style.color = "#10316b";
-        }
-        const menuUsuario = document.getElementById("menu-usuario");
-        if (menuUsuario && menuUsuario.querySelector("a")) {
-            menuUsuario.querySelector("a").textContent = nick;
-        }
+      if (bienvenida) {
+        bienvenida.textContent = `Bienvenido, ${nick}!`;
+        bienvenida.style.display = "block";
+        bienvenida.style.fontWeight = "bold";
+        bienvenida.style.marginBottom = "1em";
+        bienvenida.style.textAlign = "center";
+        bienvenida.style.color = "#10316b";
+      }
+      if (menuUsuario && menuUsuario.querySelector("a")) {
+        menuUsuario.querySelector("a").textContent = nick;
+      }
     }
-});
 
-  
+    const btnOut = document.getElementById("logoutBoton");
+    if (btnOut) {
+      btnOut.addEventListener("click", () => {
+        localStorage.removeItem("id_usuari");
+        localStorage.removeItem("nickusuari");
+        window.location.href = "http://localhost/ProyectoLLMQ/SopaLetras/HTML/Usuario/wordSearch.html";
+      });
+    }
+  }
+
+}); 
