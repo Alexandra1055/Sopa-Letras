@@ -1,44 +1,50 @@
 main {
-    padding: 2rem;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    margin-top: 6rem;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-top: 6rem;
 }
 
 .tabla-puntos {
-    background-color: var(--admin-bg-light);
-    border-radius: 1rem;
-    padding: 1rem;
-    text-align: center;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--admin-bg-light);
+  border-radius: 1rem;
+  padding: 1rem;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .tabla-puntos table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
 }
 
 .tabla-puntos thead {
-    background-color: var(--admin-primary);
-    color: var(--admin-hover-text);
+  background-color: var(--admin-primary);
+  color: var(--admin-hover-text);
+}
+
+.tabla-puntos tbody {
+  align-items: center;
 }
 
 .tabla-puntos th,
 .tabla-puntos td {
-    padding: 0.75rem;
-    text-align: center;
-    border-bottom: 1px solid var(--admin-accent);
+  padding: 0.75rem;
+  text-align: center;
+  border-bottom: 1px solid var(--admin-accent);
 }
 
 .tabla-puntos tbody tr:hover {
-    background-color: var(--admin-hover);
-    color: var(--admin-hover-text);
+  background-color: var(--admin-hover);
+  color: var(--admin-hover-text);
 }
 
 @media (min-width: 1024px) {
-    main {
-        margin-top: 10rem;
-        grid-template-columns: repeat(3, 1fr);
-    }
+  main {
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 10rem;
+  }
 }
+

@@ -1,28 +1,26 @@
-  // Función para insertar en la tabla según dificultad
-  function insertarInformacion(nombre, puntos, dificultad) {
-    const tabla = document.querySelector(`.tabla-puntos.${dificultad}`);
-  
-    if (!tabla) {
-      console.error(`No se encontró la tabla para dificultad ${dificultad}`);
-      return;
-    }
-  
-      const tbody = tabla.querySelector("tbody");
+// Función para insertar en la tabla según dificultad
+function insertarInformacion(nombre, puntos, dificultad) {
+  const tabla = document.querySelector(`.tabla-puntos.${dificultad}`);
 
-      const fila = document.createElement("tr");
+  if (!tabla) {
+    console.error(`No se encontró la tabla para dificultad ${dificultad}`);
+    return;
+  }
+  const tbody = tabla.querySelector("tbody");
   
-      const celdaNombre = document.createElement("td");
-      celdaNombre.textContent = nombre;
-  
-      const celdaPuntos = document.createElement("td");
-      celdaPuntos.textContent = puntos;
-  
-      fila.appendChild(celdaNombre);
-      fila.appendChild(celdaPuntos);
-      tbody.appendChild(fila);
-    };
-  
-  document.addEventListener("DOMContentLoaded", async () => {
+  const tr = document.createElement("tr");
+  const tdNombre = document.createElement("td");
+  tdNombre.textContent = nombre;
+  const tdPuntos = document.createElement("td");
+  tdPuntos.textContent = puntos;
+
+  tr.appendChild(tdNombre);
+  tr.appendChild(tdPuntos);
+  console.log("Insertando fila en", dificultad, "→", tr.childNodes.length, "celdas:", tr);
+
+  tbody.appendChild(tr);
+}
+document.addEventListener("DOMContentLoaded", async () => {
   await cargarUsuarios();
 });
 
@@ -56,19 +54,19 @@ async function cargarUsuarios() {
   }
 }
 
-  //Funcion para obtener la dificultad
-  function obtenerDificultad(id_nivell){
-    switch(id_nivell){
-      case(1):
-        return "facil";
+//Funcion para obtener la dificultad
+function obtenerDificultad(id_nivell) {
+  switch (id_nivell) {
+    case (1):
+      return "facil";
 
-      case(2):
-        return "intermedio";
+    case (2):
+      return "intermedio";
 
-      case(3):
-        return "dificil";
+    case (3):
+      return "dificil";
 
-      default:
-        return null;
-    }
+    default:
+      return null;
   }
+}
