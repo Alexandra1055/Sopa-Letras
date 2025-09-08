@@ -16,4 +16,13 @@
     --admin-bg-dark: #1b2b49;
     --admin-hover: #1c273d;
     --admin-hover-text: #d29c28;
+
+    /* Modo daltónico */
+    --daltonic-primary: #10316b;
+    --daltonic-secondary: #FFD166;
+    --daltonic-accent: #00A676;
+    --daltonic-bg-light: #F2F2F2;
+    --daltonic-bg-dark: #333333;
+    --daltonic-hover: #444444;
+    --daltonic-hover-text: #FFFFFF;
 }

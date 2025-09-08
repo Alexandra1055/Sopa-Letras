@@ -92,6 +92,8 @@
     width: 25px;
     height: 25px;
 }
+.selected { outline: 2px solid blue; }
+.endpoint-selected { outline: 2px solid red; }
 
 #fin {
     align-self: center;
