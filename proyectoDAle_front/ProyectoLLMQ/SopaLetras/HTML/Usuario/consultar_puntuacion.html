@@ -24,15 +24,16 @@
       </div>
     <div class="contenedor_imagen_fondo">
         <header>
-                <div class="menu_nav">
-                    <div class="menu_header">
-                        <div class="logo">
+              
+            <div class="menu_nav">
+                <div class="menu_header">
+                    <div class="logo">
                         <a href="./wordSearch.html">
                             <img src="../Multimedia/Imagenes/logo2.PNG" alt="Logo" height="80" width="80">
                         </a>
                     </div>
                     <div class="sidebar">
-                        <a href="#mySidebar" class="sidebar-abrir-boton">☰</a>                 
+                        <a href="#mySidebar" class="sidebar-abrir-boton">☰</a>
                     </div>
                     <div class="sidebar-nav" id="mySidebar">
                         <a href="#" class="sidebar-cerrar-boton">&times;</a>
@@ -43,13 +44,13 @@
                                     <li class="sublista"><a href="./solicitud_admin.html">Solicitud Admin</a></li>
                                 </ul>
                             </li>
-                            <li class="lista"><a href="./juego.html">Juego</a>
+                            <li class="lista" id="menu-juego" style="display: none;"><a href="./juego.html">Juego</a>
                                 <ul>
                                     <li class="sublista"><a href="./consultar_puntuacion.html">Mi puntuación</a></li>
                                 </ul>
                             </li>
                             <li class="lista"><a href="./ayuda_usuario.html">Ayuda</a></li>
-                            <li class="lista"><a href="./otro_contenido.html">Otros</a>
+                            <li class="lista" id="menu-usuario"><a href="./otro_contenido.html">Otros</a>
                                 <ul>
                                     <li class="sublista"><a href="./contacto.html">Contacto</a></li>
                                     <li class="sublista"><a href="./mapa.html">Mapa</a></li>
@@ -60,23 +61,15 @@
                         </ul>
                     </div>
                     <div class="overlay"></div>
-                    <script>
-                        function w3_open() {
-                            document.getElementById("mySidebar").style.display = "block";
-                        }
-                        function w3_close() {
-                            document.getElementById("mySidebar").style.display = "none";
-                        }
-                    </script>
 
                 </div>
-                <div id="logout">
+                <div id="logout" style="display: none;">
                     <div>
                         <a href="../Administrador/admin_wordSearch.html">Área Privada</a>
                     </div>
                     <div>
-                        <button>
-                            <a href="wordSearch.html">Logout <img src="../Multimedia/Imagenes/logout.png" alt="Logout"
+                        <button id="logoutBoton">
+                            <a href="wordSearch.html" >Logout <img src="../Multimedia/Imagenes/logout.png" alt="Logout"
                                     width="15" height="15"></a>
                         </button>
                     </div>
@@ -103,19 +96,19 @@
                 <h3>Mi Puntuación:</h3></div>
                 <div class="puntuacion">
                     <ul>
-                        <li><div class="dificultat">Nivel Fácil:</div>
+                        <li><div class="dificultat" id="Facil">Nivel Fácil:</div>
                             <ul>
                                 <li>Sopa1: 10</li>
                                 <li>Sopa2: 10</li>
                             </ul>
                         </li>
-                        <li><div class="dificultat">Nivel Intermedio:</div>
+                        <li><div class="dificultat" id="Intermedio">Nivel Intermedio:</div>
                             <ul>
                                 <li>Sopa3: 15</li>
                                 <li>Sopa4: 15</li>
                             </ul>
                         </li>
-                        <li><div class="dificultat">Nivel Difícil:</div>
+                        <li><div class="dificultat" id="Dificil">Nivel Difícil:</div>
                             <ul>
                                 <li>Sopa5: 20</li>
                                 <li>Sopa6: 20</li>
@@ -143,6 +136,10 @@
     </footer>
 
 </div>
+<script src="../JS/CRUD.js"></script>
+<script src="../JS/crud-usuario.js"></script>
+<script src="../JS/accesibilidad.js"></script>
+<script src="../JS/consultar_puntuacion.js"></script>
 </body>
 
 </html>

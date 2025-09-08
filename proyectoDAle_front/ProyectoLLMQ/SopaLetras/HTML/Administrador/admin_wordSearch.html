@@ -12,9 +12,7 @@
     <link rel="stylesheet" href="../CSS/componentes.css">
     <link rel="stylesheet" href="../CSS/responsive.css">
     <link rel="stylesheet" href="../CSS/variables.css">
-    <link rel="stylesheet" href="../CSS/imagen-fondo.css">
     <link rel="stylesheet" href="../CSS/formularios.css">
-    <link rel="stylesheet" href="../CSS/articulos.css">
     <link rel="icon" type="image/x-icon" href="../Multimedia/Imagenes/favicon.ico">
 </head>
 
@@ -31,7 +29,7 @@
     <main>
         <div class="contenidormain">
             <div class="loginadmin">
-                <form action="procesar_wordSerach_Admin.php" method="post" target="_blank" autocomplete="on">
+                <form id="formLoginAdmin" autocomplete="on">
                     <fieldset>
                         <legend>
                             <h4>Iniciar Sesión Admin&#128081;</h4>
@@ -44,7 +42,7 @@
                             required>
         
                     </fieldset>
-                    <input type="submit" value="Iniciar" id="loginBotonAdmin">
+                    <button type="button" id="loginBotonAdmin">Iniciar</button>
                     <p>
                         <a href="../Usuario/contacto.html">Recuperar contraseña</a>
                         ¿Quieres ser administrador? Rellena el Formulario de <a href="../Usuario/solicitud_admin.html">Solicitud
@@ -73,8 +71,9 @@
     </footer>
 
 </div>
-<script src="../JS/crud.js"></script>
-<script src="../JS/crud-usuario.js"></script>
+    <script src="../JS/CRUD.js"></script>
+    <script src="../JS/crud-usuario.js"></script>
+    <script src="../JS/accesibilidad.js"></script>
 </body>
 
 </html>

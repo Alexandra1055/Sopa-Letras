@@ -166,7 +166,7 @@
                                 </ul>
                             </li>
                             <li class="lista"><a href="./ayuda_usuario.html">Ayuda</a></li>
-                            <li class="lista"><a href="./otro_contenido.html">Otros</a>
+                            <li class="lista" id="menu-usuario"><a href="./otro_contenido.html">Otros</a>
                                 <ul>
                                     <li class="sublista"><a href="./contacto.html">Contacto</a></li>
                                     <li class="sublista"><a href="./mapa.html">Mapa</a></li>
@@ -177,14 +177,7 @@
                         </ul>
                     </div>
                     <div class="overlay"></div>
-                    <script>
-                        function w3_open() {
-                            document.getElementById("mySidebar").style.display = "block";
-                        }
-                        function w3_close() {
-                            document.getElementById("mySidebar").style.display = "none";
-                        }
-                    </script>
+
 
                 </div>
                 <div id="logout" style="display: none;">
@@ -192,8 +185,8 @@
                         <a href="../Administrador/admin_wordSearch.html">Área Privada</a>
                     </div>
                     <div>
-                        <button>
-                            <a href="wordSearch.html">Logout <img src="../Multimedia/Imagenes/logout.png" alt="Logout"
+                        <button id="logoutBoton">
+                            <a href="wordSearch.html" >Logout <img src="../Multimedia/Imagenes/logout.png" alt="Logout"
                                     width="15" height="15"></a>
                         </button>
                     </div>
@@ -222,7 +215,9 @@
         <main>
             <div class="bento1">
                 <div class="login">
-                    <form action="processar_wordSearch.php" method="post" target="_blank" autocomplete="on">
+                    <div id="bienvenida" style="display: none;"></div>
+
+                    <form id="form-login" method="post" target="_blank" autocomplete="on" style="display: block;">
                         <fieldset><!--Mirar de poner que al seleccionar la caja el nombre salga arriba-->
                             <legend>
                                 <h4>Iniciar Sesión</h4>
@@ -300,7 +295,9 @@
         </footer>
 
     </div>
-    <script src="../JS/crud.js"></script>
+    <script src="../JS/CRUD.js"></script>
     <script src="../JS/crud-usuario.js"></script>
+    <script src="../JS/accesibilidad.js"></script>
+    <script src="../JS/configuracion.js"></script>
 </body>
 </html>

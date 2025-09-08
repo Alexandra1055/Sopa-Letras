@@ -40,13 +40,13 @@
                                     <li class="sublista"><a href="./solicitud_admin.html">Solicitud Admin</a></li>
                                 </ul>
                             </li>
-                            <li class="lista"><a href="./juego.html">Juego</a>
+                            <li class="lista" id="menu-juego" style="display: none;"><a href="./juego.html">Juego</a>
                                 <ul>
                                     <li class="sublista"><a href="./consultar_puntuacion.html">Mi puntuación</a></li>
                                 </ul>
                             </li>
                             <li class="lista"><a href="./ayuda_usuario.html">Ayuda</a></li>
-                            <li class="lista"><a href="./otro_contenido.html">Otros</a>
+                            <li class="lista" id="menu-usuario"><a href="./otro_contenido.html">Otros</a>
                                 <ul>
                                     <li class="sublista"><a href="./contacto.html">Contacto</a></li>
                                     <li class="sublista"><a href="./mapa.html">Mapa</a></li>
@@ -57,22 +57,14 @@
                         </ul>
                     </div>
                     <div class="overlay"></div>
-                    <script>
-                        function w3_open() {
-                            document.getElementById("mySidebar").style.display = "block";
-                        }
-                        function w3_close() {
-                            document.getElementById("mySidebar").style.display = "none";
-                        }
-                    </script>
 
                 </div>
-                <div id="logout">
+                <div id="logout" style="display: none;">
                     <div>
                         <a href="../Administrador/admin_wordSearch.html">Área Privada</a>
                     </div>
                     <div>
-                        <button>
+                        <button id="logoutBoton">
                             <a href="wordSearch.html">Logout <img src="../Multimedia/Imagenes/logout.png" alt="Logout"
                                     width="15" height="15"></a>
                         </button>
@@ -95,7 +87,13 @@
         </header>
         <main>
             <div class="formulario-configuracion">
+<<<<<<< HEAD
+                <form id="formConfiguracion" autocomplete="on">
+||||||| 367573e
                 <form action="procesar_configuracion.php" method="post" target="_blank" autocomplete="on">
+=======
+                <form method="post" target="_blank" autocomplete="on">
+>>>>>>> ramaPaulo
                     <fieldset>
                         <div class="configuracion">
                             <legend>Configuración de la página:</legend>
@@ -117,29 +115,18 @@
                             </div>
                             <div class="sonido">
                                 <h4>Sonido:</h4>
-                                <div class="configurar">
-                                    <ol>
-                                        <li><label for="nivelSonidoGeneral">Nivel General: </label>
-                                            <input type="range" id="nivelSonidoGeneral" name="nivelSonidoGeneral"
-                                                min="0" max="10">
-                                        </li>
-                                        <li><label for="nivelSonidoAlertas">Nivel Efectos: </label>
-                                            <input type="range" id="nivelSonidoAlertas" name="nivelSonidoAlertas"
-                                                min="0" max="10">
-                                        </li>
-                                    </ol>
-                                </div>
+                                <audio id="audio" autoplay loop>
+                                    <source src="../Multimedia/Audio/instrumental_audio_juego.mp3" type="audio/mp3">
+                                    Tu navegador no soporta el elemento de audio.
+                                </audio>
+                                <label for="nivelSonidoGeneral">Volumen:</label>
+                                <input type="range" id="nivelSonidoGeneral" name="nivelSonidoGeneral" min="0" max="10">
                             </div>
                             <div class="tamaño">
-                                <h4>Tamaño Letras: </h4>
-                                <div class="configurar">
-                                    <ol>
-                                        <li><label for="nivelLetras">Tamaño de las Letras: </label>
-                                            <input type="range" id="nivelLetras" name="nivelLetras" min="0" max="10">
-                                        </li>
-                                    </ol>
-                                </div>
-                            </div>
+                                <h4>Tamaño Letras:</h4>
+                                <label for="nivelLetras">Escala de texto:</label>
+                                <input type="range" id="nivelLetras" name="nivelLetras" min="0" max="3">
+                              </div>
                             <div class="color">
                                 <h4>Color: </h4>
                                 <div class="configurar">
@@ -150,11 +137,6 @@
                                         <li><label for="colorIncorrecto"> Letra Incorrecta</label>
                                             <input type="color" id="colorIncorrecto" name="colorIncorrecto"
                                                 value="#fc2b02">
-                                        </li>
-                                    </ul>
-                                    <ul>
-                                        <li><label for="colorTabla"> Elige el color de la tabla:</label>
-                                            <input type="color" id="colorTabla" name="colorTabla" value="#02fc20">
                                         </li>
                                     </ul>
                                 </div>
@@ -197,6 +179,8 @@
 
     </div>
     <script src="../JS/CRUD.js"></script>
+    <script src="../JS/crud-usuario.js"></script>
+    <script src="../JS/accesibilidad.js"></script>
     <script src="../JS/configuracion.js"></script>
 </body>
 

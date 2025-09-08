@@ -53,14 +53,6 @@
                     </ul>
                 </div>
                 <div class="overlay"></div>
-                <script>
-                    function w3_open() {
-                        document.getElementById("mySidebar").style.display = "block";
-                    }
-                    function w3_close() {
-                        document.getElementById("mySidebar").style.display = "none";
-                    }
-                </script>
 
             </div>
             <div id="logout">
@@ -75,19 +67,7 @@
             <h3>Eliminar Sopas de Letras</h3>
             <div class="formulario-eliminar-sopas">
                 <form action="procesar_bajaSopa_Admin.php" method="post">
-                    <h4>Nivel:</h4>
-                    <div>
-                        <label>Sopa de Letras: Fácil</label>
-                        <input type="checkbox" id="sopa_facil" name="sopa_facil" value="Sopa facil">
-                    </div>
-                    <div>
-                        <label>Sopa de Letras: Intermedio</label>
-                        <input type="checkbox" id="sopa_intermedio" name="sopa_intermedio" value="Sopa intermedio">
-                    </div>
-                    <div>
-                        <label>Sopa de Letras: Difícil</label>
-                        <input type="checkbox" id="sopa_dificl" name="sopa_dificil" value="Sopa dificil">
-                    </div>
+                    <h4>Sopas:</h4>
                 </form>
             </div>
             <button type="submit">Eliminar</button>
@@ -111,6 +91,10 @@
     </footer>
 
     </div>
+    <script src="../JS/CRUD.js"></script>
+    <script src="../JS/crud-usuario.js"></script>
+    <script src="../JS/accesibilidad.js"></script>
+    <script src="../JS/d-sopa.js"></script>
 </body>
 
 </html>

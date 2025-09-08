@@ -55,14 +55,6 @@
                     </ul>
                 </div>
                 <div class="overlay"></div>
-                <script>
-                    function w3_open() {
-                        document.getElementById("mySidebar").style.display = "block";
-                    }
-                    function w3_close() {
-                        document.getElementById("mySidebar").style.display = "none";
-                    }
-                </script>
 
             </div>
             <div id="logout">
@@ -80,15 +72,17 @@
             <h4>Nivel Total </h4>
         </div>
             <div class="ranking">
-            <ol>
-                <li><b>Primero: </b>PEscanellas</li>
-                <li style="list-style-type: none"><b>Puntuación: </b>5000</li>
-                <li><b>Segundo: </b>PFebrer</li>
-                <li style="list-style-type: none"><b>Puntuación: </b>4500</li>
-                <li><b>Tercero: </b>AGonzalez</li>
-                <li style="list-style-type: none"><b>Puntuación: </b>4000</li>
-            </ol>
-        </div>
+                <ol>
+                    <li><b>Primero: </b><span id="usuario-1"></span></li>
+                    <li style="list-style-type: none"><b>Puntuación: </b><span id="puntuacion-1"></span></li>
+
+                    <li><b>Segundo: </b><span id="usuario-2"></span></li>
+                    <li style="list-style-type: none"><b>Puntuación: </b><span id="puntuacion-2"></span></li>
+
+                    <li><b>Tercero: </b><span id="usuario-3"></span></li>
+                    <li style="list-style-type: none"><b>Puntuación: </b><span id="puntuacion-3"></span></li>
+                </ol>
+            </div>
     </main>
     <footer>
         <div class="redes-sociales">
@@ -107,7 +101,10 @@
                         alt="No se ha encontrado el logo" height="20" width="20">Word Search, sopa de letras</a></b>
         </div>
     </footer>
-
+    <script src="../JS/CRUD.js"></script>
+    <script src="../JS/crud-usuario.js"></script>
+    <script src="../JS/accesibilidad.js"></script>
+    <script src="../JS/consultar_ranking_ADMIN.js"></script>
 </body>
 
 </html>
